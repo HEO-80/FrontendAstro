@@ -1,0 +1,126 @@
+---
+// src/components/Navbar.astro
+const currentPath = Astro.url.pathname;
+---
+
+<nav class="nav-container">
+    <ul>
+        <li><a href="#inicio" class="nav-link">Inicio</a></li>
+        <li>
+            <a href="#sobre-mi" class="nav-link">Sobre mí</a>
+        </li>
+        <li>
+            <a href="#experiencia" class="nav-link">Experiencia</a>
+        </li>
+        <li>
+            <a href="#proyectos" class="nav-link">Proyectos</a>
+        </li>
+        <li>
+            <a href="#contacto" class="nav-link">Contacto</a>
+        </li>
+    </ul>
+</nav>
+
+<style>
+    .nav-container {
+        font-family: "Ubuntu", sans-serif;
+        background: rgba(52, 52, 52, 0.7);
+        backdrop-filter: saturate(182%) blur(4px);
+        -webkit-backdrop-filter: saturate(182%) blur(4px);
+        border-radius: 26px;
+        width: fit-content;
+        margin: 13px auto;
+        padding: 7px;
+        position: fixed;
+        top: 7px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 9999;
+    }
+
+    nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 7px;
+        align-items: center;
+    }
+
+    nav ul li {
+        display: flex;
+    }
+
+    nav ul li a {
+        font-size: 13px;
+        font-weight: 520;
+        letter-spacing: -0.01em;
+        transition: all 0.26s cubic-bezier(0.4, 0, 0.2, 1);
+        color: var(--color-text);
+        text-decoration: none;
+        padding: 7px 13px;
+        border-radius: 26px;
+        display: inline-block;
+        position: relative;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    nav ul li a:hover {
+        color: var(--color-primary);
+        background-color: rgba(251, 228, 21, 0.1);
+    }
+
+    nav ul li a:active {
+        transform: scale(0.96);
+        transition: transform 0.1s ease;
+    }
+
+    /* Estilo para el enlace activo - iOS pill style */
+    nav ul li a.active {
+        background-color: var(--color-primary);
+        color: #000000;
+        font-weight: 590;
+        box-shadow:
+            0 2px 7px rgba(251, 228, 21, 0.4),
+            0 1px 3px rgba(251, 228, 21, 0.2);
+    }
+
+    nav ul li a.active:hover {
+        background-color: var(--color-primary);
+        color: #000000;
+    }
+
+    @media (max-width: 600px) {
+        .nav-container {
+            padding: 7px;
+            border-radius: 26px;
+            top: 7px;
+        }
+
+        nav ul {
+            gap: 4px;
+        }
+
+        nav ul li a {
+            font-size: 13px;
+            padding: 7px 13px;
+            border-radius: 26px;
+        }
+    }
+
+    /* Animación suave de entrada */
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateX(-50%) translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+    }
+
+    .nav-container {
+        animation: slideDown 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+</style>
