@@ -1,8 +1,6 @@
-/* Tailwind base */
-@tailwind base;
-@tailwind components;
+
 @tailwind utilities;
 
-/* Flowbite (opcional, si quieres mantenerlo) */
-@import "flowbite/src/themes/default";
+@import "flowbite";
+
 
