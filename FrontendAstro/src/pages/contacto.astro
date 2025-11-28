@@ -1,0 +1,574 @@
+---
+import Map from "../components/Map.astro";
+
+const pageTitle = "Contacto - FrontendAstro";
+---
+
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{pageTitle}</title>
+        <meta
+            name="description"
+            content="Ponte en contacto con nosotros. Estamos aquí para ayudarte con tus proyectos de desarrollo web."
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <main class="contact-page">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1 class="hero-title">
+                            <span class="gradient-text">Hablemos</span> de tu proyecto
+                        </h1>
+                        <p class="hero-subtitle">
+                            Estamos aquí para ayudarte a llevar tus ideas al
+                            siguiente nivel. Contáctanos y comencemos a crear
+                            algo increíble juntos.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section class="contact-section">
+                <div class="container">
+                    <div class="contact-grid">
+                        <!-- Contact Form -->
+                        <div class="contact-form-wrapper">
+                            <div class="form-header">
+                                <h2>Envíanos un mensaje</h2>
+                                <p>
+                                    Completa el formulario y te responderemos lo
+                                    antes posible
+                                </p>
+                            </div>
+
+                            <form class="contact-form" id="contactForm">
+                                <div class="form-group">
+                                    <label for="name">Nombre completo</label>
+                                    <input
+                                        type="text"
+                                        id="name"
+                                        name="name"
+                                        required
+                                        placeholder="Tu nombre"
+                                        autocomplete="name"
+                                    />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        required
+                                        placeholder="tu@email.com"
+                                        autocomplete="email"
+                                    />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="phone"
+                                        >Teléfono (opcional)</label
+                                    >
+                                    <input
+                                        type="tel"
+                                        id="phone"
+                                        name="phone"
+                                        placeholder="+34 600 000 000"
+                                        autocomplete="tel"
+                                    />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="message">Mensaje</label>
+                                    <textarea
+                                        id="message"
+                                        name="message"
+                                        rows="5"
+                                        required
+                                        placeholder="Cuéntanos más sobre tu proyecto o consulta..."
+                                    ></textarea>
+                                </div>
+
+                                <button type="submit" class="submit-btn">
+                                    <span class="btn-text">Enviar mensaje</span>
+                                    <span class="btn-icon">→</span>
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- Contact Info & Map -->
+                        <div class="contact-info-wrapper">
+                            <!-- Contact Cards -->
+                            <div class="info-cards">
+                                <div class="info-card">
+                                    <div class="card-icon">📧</div>
+                                    <h3>Email</h3>
+                                    <a href="mailto:info@frontendastro.com"
+                                        >info@frontendastro.com</a
+                                    >
+                                </div>
+
+                                <div class="info-card">
+                                    <div class="card-icon">📱</div>
+                                    <h3>Teléfono</h3>
+                                    <a href="tel:+34600000000"
+                                        >+34 600 000 000</a
+                                    >
+                                </div>
+
+                                <div class="info-card">
+                                    <div class="card-icon">📍</div>
+                                    <h3>Ubicación</h3>
+                                    <p>Centro Océano Atlántico</p>
+                                    <p
+                                        style="font-size: 0.85rem; margin-top: 0.25rem;"
+                                    >
+                                        Mercazaragoza, Zaragoza
+                                    </p>
+                                </div>
+
+                                <div class="info-card">
+                                    <div class="card-icon">⏰</div>
+                                    <h3>Horario</h3>
+                                    <p>Lun - Vie: 9:00 - 18:00</p>
+                                </div>
+                            </div>
+
+                            <!-- Map Component -->
+                            <div class="map-wrapper">
+                                <h3 class="map-title">Encuéntranos</h3>
+                                <Map
+                                    latitude={41.6819979}
+                                    longitude={-0.8528215}
+                                    zoom={15}
+                                    height="350px"
+                                    markerText="Centro Océano Atlántico - Mercazaragoza"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </body>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gradient: linear-gradient(
+                135deg,
+                #667eea 0%,
+                #764ba2 100%
+            );
+            --secondary-gradient: linear-gradient(
+                135deg,
+                #f093fb 0%,
+                #f5576c 100%
+            );
+            --dark-bg: #0f0f23;
+            --card-bg: #1a1a2e;
+            --text-primary: #ffffff;
+            --text-secondary: #a0aec0;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            --shadow-hover: 0 25px 70px rgba(0, 0, 0, 0.4);
+        }
+
+        body {
+            font-family:
+                "Inter",
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 0 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(
+                circle,
+                rgba(102, 126, 234, 0.1) 0%,
+                transparent 70%
+            );
+            animation: pulse 15s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .gradient-text {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 4rem 0 6rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        /* Contact Form */
+        .contact-form-wrapper {
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 26px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .contact-form-wrapper:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .form-header h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .form-header p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.875rem 1.25rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 26px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            background: rgba(102, 126, 234, 0.1);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: var(--primary-gradient);
+            border: none;
+            border-radius: 26px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .btn-icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .submit-btn:hover .btn-icon {
+            transform: translateX(5px);
+        }
+
+        /* Contact Info */
+        .contact-info-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 26px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            border-color: #667eea;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .info-card h3 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .info-card a,
+        .info-card p {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .info-card a:hover {
+            color: #667eea;
+        }
+
+        /* Map */
+        .map-wrapper {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 26px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+        }
+
+        .map-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Social Section */
+        .social-section {
+            padding: 4rem 0;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.02);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .social-section h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .social-link svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .social-link:hover {
+            background: var(--primary-gradient);
+            border-color: transparent;
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 6rem 0 3rem;
+            }
+
+            .contact-form-wrapper {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .info-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .container {
+                padding: 0 1.5rem;
+            }
+        }
+    </style>
+
+    <script>
+        const form = document.getElementById("contactForm") as HTMLFormElement;
+
+        form?.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            // Get form data
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            console.log("Form submitted:", data);
+
+            // Show success message
+            const submitBtn = form.querySelector(
+                ".submit-btn",
+            ) as HTMLButtonElement;
+            const originalText = submitBtn.innerHTML;
+
+            submitBtn.innerHTML = "<span>✓ Mensaje enviado</span>";
+            submitBtn.style.background =
+                "linear-gradient(135deg, #11998e 0%, #38ef7d 100%)";
+
+            // Reset form
+            setTimeout(() => {
+                form.reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.style.background = "";
+            }, 3000);
+        });
+    </script>
+</html>
