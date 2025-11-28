@@ -1,0 +1,100 @@
+---
+// archivo: CoolButton.astro
+// Puedes copiar y pegar esto directamente como un componente o página
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Botón Chulo en Astro</title>
+  </head>
+  <body class="min-h-screen bg-gray-900 flex items-center justify-center">
+    
+    <!-- Botón chulo -->
+    <button class="magic-button">
+      ¡Haz clic aquí!
+    </button>
+
+    <style>
+      .magic-button {
+        /* Layout con flex para centrar el texto + icono opcional */
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+
+        /* Tamaño base y responsive */
+        padding: 1rem 2.5rem;
+        font-size: 1.1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: white;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border: none;
+        border-radius: 9999px;              /* píldora */
+        box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        outline: none;
+      }
+
+      /* Efecto brillo al hover */
+      .magic-button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+        transition: left 0.7s;
+      }
+
+      .magic-button:hover::before {
+        left: 100%;
+      }
+
+      /* Hover principal */
+      .magic-button:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px rgba(102, 126, 234, 0.6);
+      }
+
+      .magic-button:active {
+        transform: translateY(-1px);
+      }
+
+      /* Focus para accesibilidad */
+      .magic-button:focus-visible {
+        outline: 3px solid rgba(255, 255, 255, 0.5);
+        outline-offset: 4px;
+      }
+
+      /* Pequeña animación de pulso cuando está inactivo */
+      @keyframes pulse {
+        0%, 100% { box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4); }
+        50%      { box-shadow: 0 15px 35px rgba(102, 126, 234, 0.6); }
+      }
+
+      .magic-button {
+        animation: pulse 4s infinite ease-in-out;
+      }
+
+      .magic-button:hover {
+        animation: none; /* quitamos el pulso al hover para que no compita */
+      }
+
+      /* Responsive: en pantallas pequeñas se hace más grande al tacto */
+      @media (max-width: 640px) {
+        .magic-button {
+          padding: 1.25rem 3rem;
+          font-size: 1.2rem;
+        }
+      }
+    </style>
+  </body>
+</html>
