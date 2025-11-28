@@ -1,0 +1,48 @@
+---
+/*
+  Componente GlobalScroll.astro
+  Scroll dinámico para toda la página con color aleatorio
+*/
+---
+
+<style is:global>
+  /* WebKit (Chrome, Edge, Safari) */
+  html::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  html::-webkit-scrollbar-track {
+    background: var(--scroll-track, hsl(0, 0%, 92%));
+  }
+
+  html::-webkit-scrollbar-thumb {
+    background-color: var(--scroll-thumb, hsl(0, 0%, 50%));
+    border-radius: 8px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+
+  /* Firefox */
+  html {
+    scrollbar-color: var(--scroll-thumb, hsl(0, 0%, 50%)) var(--scroll-track, hsl(0,0%,92%));
+    scrollbar-width: thin;
+  }
+</style>
+
+<script>
+  (() => {
+    const randomHsl = () => {
+      const h = Math.floor(Math.random() * 360);
+      const s = 70;
+      const l = 50;
+      return `hsl(${h}, ${s}%, ${l}%)`;
+    };
+
+    const thumb = randomHsl();
+    const track = 'hsl(0, 0%, 92%)';
+
+    document.documentElement.style.setProperty('--scroll-thumb', thumb);
+    document.documentElement.style.setProperty('--scroll-track', track);
+  })();
+</script>
