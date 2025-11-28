@@ -1,0 +1,76 @@
+--- 
+
+---
+
+<footer class="bg-linear-to-t from-black via-gray-900 to-gray-800 text-gray-100">
+  <div class="max-w-5xl mx-auto px-6 py-12 md:py-3">
+    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
+      <!-- Branding / Logo -->
+      <div class="flex-1 min-w-0">
+        <a href="/" class="flex items-center gap-3" aria-label="Inicio - Marca">
+          <div class="w-11 h-11 rounded-2xl bg-linear-to-br from-indigo-600 to-cyan-400 flex items-center justify-center shadow-lg">
+            <!-- Simple logo SVG -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+              <path d="M3 12h18" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+              <path d="M12 3v18" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold leading-tight" style="text-shadow: 0 2px 14px rgba(99,102,241,0.14)">MiMarca</h3>
+            <p class="text-sm text-gray-300/80">Diseño · Desarrollo · Soporte</p>
+          </div>
+        </a>
+
+        <p class="mt-6 text-sm text-gray-300/75 leading-relaxed max-w-md" style="text-shadow: 0 1px 10px rgba(255,255,255,0.03)">
+          Creando experiencias limpias y rápidas. Suscríbete para recibir actualizaciones, ofertas y recursos.
+        </p>
+
+        <!-- Newsletter pequeño (opcional) -->
+        <form class="mt-6 flex max-w-sm" action="#" onsubmit="return false;">
+          <label for="footer-email" class="sr-only">Correo electrónico</label>
+          <input id="footer-email" type="email" placeholder="tu@correo.com" required
+            class="flex-1 px-4 py-2 rounded-l-md bg-gray-900 border border-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500"/>
+          <button class="px-4 py-2 rounded-r-md bg-cyan-500/95 hover:bg-cyan-400 active:scale-95 transition-transform font-medium text-black">Suscribir</button>
+        </form>
+      </div>
+
+      <!-- Enlaces rápidos -->
+      <nav aria-label="Enlaces de pie" class="grid grid-cols-2 gap-6 sm:grid-cols-3 md:gap-8">
+        <div>
+          <h4 class="text-sm font-semibold text-gray-200 mb-3">Producto</h4>
+          <ul class="space-y-2 text-sm text-gray-300">
+            <li><a class="hover:underline hover:text-white" href="./src/pages/contacto">Contacto</a></li>
+            <li><a class="hover:underline hover:text-white" href="#">Precios</a></li>
+            <li><a class="hover:underline hover:text-white" href="#">Docs</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="mt-10 border-t border-gray-800/60 pt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <p class="text-sm text-gray-400">© {new Date().getFullYear()} MiMarca. Todos los derechos reservados.</p>
+
+      <div class="flex items-center gap-4">
+        <!-- Social icons (SVGs) -->
+        <a href="#" class="p-2 rounded-md hover:bg-gray-800/60" aria-label="Twitter">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden>
+            <path d="M23 3s-1 .5-2 1c-1 1-2 2-3 2 0 0 2-1 2-1s-2 1-3 1c-1 0-2 0-3 1-2 1-3 2-4 3s-2 2-3 3c-1 0-3 1-4 1z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+        <a href="#" class="p-2 rounded-md hover:bg-gray-800/60" aria-label="GitHub">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden>
+            <path d="M12 2C8 2 4 5 4 9c0 3 2 5 4 6v3h-2v3h12v-3h-2v-3c2-1 4-3 4-6 0-4-4-7-8-7z" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+        <a href="#" class="p-2 rounded-md hover:bg-gray-800/60" aria-label="LinkedIn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden>
+            <path d="M4 3v18M8 7v10M16 7v10M12 3v18" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div aria-hidden class="pointer-events-none">
+    <div class="absolute inset-x-0 bottom-0 h-14 bg-linar-to-t from-black/90 to-transparent"></div>
+  </div>
+</footer>
