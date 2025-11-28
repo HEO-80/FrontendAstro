@@ -1,0 +1,39 @@
+# --- BUILD ---
+dist/
+.astro/
+
+# --- DEPENDENCIES ---
+node_modules/
+
+# --- LOCKFILES ---
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# --- LOGS ---
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# --- ENV FILES ---
+.env
+.env.*       # por si usas .env.development, .env.local, etc.
+
+# --- SYSTEM FILES ---
+.DS_Store
+Thumbs.db
+
+# --- EDITOR / IDE ---
+.idea/
+.vscode/
+*.swp
+
+# --- TEMP FILES ---
+*.tmp
+*.temp
+
+# --- OPTIONAL: Astro integrations that generate stuff ---
+.svelte-kit/
+.output/

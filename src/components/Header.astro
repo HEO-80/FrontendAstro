@@ -1,0 +1,153 @@
+<nav
+  class="bg-neutral-primary fixed w-full z-20 top-0 start-0 border-b border-default"
+>
+  <div class="flex flex-wrap items-center justify-between mx-auto p-4">
+    <!-- Logo -->
+    <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+      <img src="/favicon.svg" class="h-7" alt="Logo" />
+      <span
+        class="self-center text-xl text-heading font-semibold whitespace-nowrap"
+      >
+        Curso Front-End
+      </span>
+    </a>
+
+    <!-- Right section -->
+    <div class="flex items-center md:order-2">
+      <!-- Search (desktop) -->
+      <div class="relative hidden md:block">
+        <div
+          class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none"
+        >
+          <svg
+            class="w-4 h-4 text-body"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-width="2"
+              d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"></path>
+          </svg>
+        </div>
+        <input
+          id="search-input"
+          type="text"
+          placeholder="Buscar alumno..."
+          class="block w-full ps-9 pe-3 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand px-2.5 py-2 shadow-xs placeholder:text-body"
+          autocomplete="off"
+        />
+        <ul
+          id="suggestions"
+          class="absolute w-full bg-white border border-default rounded-base mt-1 max-h-48 overflow-auto hidden z-50"
+        >
+        </ul>
+      </div>
+    </div>
+
+    <!-- MENU -->
+    <div
+      class="items-center hidden md:flex md:w-auto md:order-1 group"
+      id="navbar-search"
+    >
+      <ul
+        class="absolute left-1/2 -translate-x-1/2 top-full z-50
+                 bg-white border border-default rounded-base shadow-lg
+                 px-4 py-2 flex flex-row gap-4
+                 opacity-0 invisible group-hover:opacity-100 group-hover:visible
+                 transition-all"
+      >
+        <li><a href="/hector">Héctor</a></li>
+        <li><a href="/gabriel">Gabriel</a></li>
+        <li><a href="/josue">Josue</a></li>
+        <li><a href="/javier">Javier</a></li>
+        <li><a href="/nico">Nico</a></li>
+        <li><a href="/angel">Angel</a></li>
+        <li><a href="/john">John</a></li>
+        <li><a href="/alberto">Alberto</a></li>
+        <li><a href="/juan">Juan</a></li>
+        <li><a href="/miguel">Miguel</a></li>
+        <li><a href="/angela">Angela</a></li>
+        <li><a href="/nayade">Nayade</a></li>
+        <li><a href="/omar">Omar</a></li>
+        <li><a href="/virginia">Virginia</a></li>
+        <li><a href="/jafet">Jafet</a></li>
+        <li><a href="/cosmin">Cosmin</a></li>
+        <li><a href="/jaime">Jaime</a></li>
+      </ul>
+
+      <button class="text-heading font-medium ml-4"> Alumnos ▾ </button>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const alumnos = [
+    "hector",
+    "gabriel",
+    "josue",
+    "javier",
+    "nico",
+    "angel",
+    "john",
+    "alberto",
+    "juan",
+    "miguel",
+    "angela",
+    "nayade",
+    "omar",
+    "virginia",
+    "jafet",
+    "cosmin",
+    "jaime",
+  ];
+
+  const input = document.getElementById("search-input");
+  const suggestions = document.getElementById("suggestions");
+
+  input.addEventListener("input", () => {
+    const value = input.value.toLowerCase().trim();
+    suggestions.innerHTML = "";
+
+    if (!value) {
+      suggestions.classList.add("hidden");
+      return;
+    }
+
+    const matches = alumnos.filter((name) => name.includes(value));
+
+    if (matches.length === 0) {
+      suggestions.classList.add("hidden");
+      return;
+    }
+
+    matches.forEach((name) => {
+      const li = document.createElement("li");
+      li.className = "px-3 py-2 hover:bg-gray-100 cursor-pointer";
+
+      // Resaltar la coincidencia
+      const index = name.indexOf(value);
+      if (index !== -1) {
+        li.innerHTML = `${name.substring(0, index)}<span class="font-semibold text-brand">${name.substring(index, index + value.length)}</span>${name.substring(index + value.length)}`;
+      } else {
+        li.textContent = name;
+      }
+
+      li.addEventListener("click", () => {
+        window.location.href = `/${name}`;
+      });
+
+      suggestions.appendChild(li);
+    });
+
+    suggestions.classList.remove("hidden");
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!input.contains(e.target) && !suggestions.contains(e.target)) {
+      suggestions.classList.add("hidden");
+    }
+  });
+</script>
