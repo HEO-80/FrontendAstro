@@ -1,18 +1,22 @@
 ---
-import HeaderVideo from '../assets/videocabesa.mp4';
-import Test from '../assets/test.png';
+import HeaderVideo from "../assets/videocabesa.mp4";
+import Test from "../assets/test.png";
 import Virginia from "../assets/virginia.png";
-
 ---
-<style>
-  @keyframes scroll {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
-  }
 
-  .animate-scroll {
-    animation: scroll 15s linear infinite;
-  }
+<style>
+	@keyframes scroll {
+		0% {
+			transform: translateX(100%);
+		}
+		100% {
+			transform: translateX(-100%);
+		}
+	}
+
+	.animate-scroll {
+		animation: scroll 20s linear infinite;
+	}
 </style>
 <main class="relative z-0 flex flex-col justify-center w-full h-[100vh]">
 	<video
@@ -23,47 +27,164 @@ import Virginia from "../assets/virginia.png";
 		class="object-cover absolute h-full w-full z-1"
 		id="video"></video>
 	<div
-		class="absolute w-full h-full opacity-[0.7] z-2" 
-		style={`background-color: ${ 'rgba('+(Math.random() * 255)+', '+(Math.random() * 255)+', '+(Math.random() * 255)+', 0.5)' }`}
+		class="absolute w-full h-full opacity-[0.7] z-2"
+		style={`background-color: ${"rgba(" + Math.random() * 255 + ", " + Math.random() * 255 + ", " + Math.random() * 255 + ", 0.5)"}`}
 		id="backdrop"
-	></div>
-	<div class="fixed z-5 w-full top-[15%] left-0 flex flex-col justify-center items-center">
-		<h1 
+	>
+	</div>
+	<div
+		class="fixed z-5 w-full top-[15%] left-0 flex flex-col justify-center items-center"
+	>
+		<h1
 			class="text-6xl font-bold mb-4"
-			style={`color: ${ 'rgba('+(Math.random() * 255)+', '+(Math.random() * 255)+', '+(Math.random() * 255)+', 0.5)' }`}
-		>Curso frontend</h1>
+			style={`color: ${"rgba(" + Math.random() * 255 + ", " + Math.random() * 255 + ", " + Math.random() * 255 + ", 0.5)"}`}
+		>
+			Curso frontend
+		</h1>
 		<div class="z-5 flex flex-col justify-center items-center w-[100vw]">
-			<p style={`color: ${ 'rgba('+(Math.random() * 255)+', '+(Math.random() * 255)+', '+(Math.random() * 255)+', 0.5)' }`}>Participantes</p>
-			<div class="w-full animate-scroll">
-				<div class="w-full flex justify-center mt-10 gap-4">
-					<div>
-						<img src={Test.src} alt="Participantes" class="w-[150px] mt-4 rounded-full shadow-lg" />
-						<p class="text-white text-center">Name</p>
+			<p
+				style={`color: ${"rgba(" + Math.random() * 255 + ", " + Math.random() * 255 + ", " + Math.random() * 255 + ", 0.5)"}`}
+			>
+				Participantes
+			</p>
+			<div class="w-full overflow-hidden">
+				<div class="flex justify-center mt-10 gap-4 animate-scroll w-[100vw]">
+					<div class="flex-none">
+						<img
+							src={Test.src}
+							alt="Participantes"
+							class="w-[150px] mt-4 rounded-full shadow-lg"
+						/>
+						<p class="text-white text-center">Héctor</p>
 					</div>
-					<div>
-						<img src={Test.src} alt="Participantes" class="w-[150px] mt-4 rounded-full shadow-lg" />
-						<p class="text-white text-center">Name</p>
+					<div class="flex-none">
+						<img
+							src={Test.src}
+							alt="Participantes"
+							class="w-[150px] mt-4 rounded-full shadow-lg"
+						/>
+						<p class="text-white text-center">Gabriel</p>
 					</div>
-					<div>
-						<img src={Test.src} alt="Participantes" class="w-[150px] mt-4 rounded-full shadow-lg" />
-						<p class="text-white text-center">Name</p>
+					<div class="flex-none">
+						<img
+							src={Test.src}
+							alt="Participantes"
+							class="w-[150px] mt-4 rounded-full shadow-lg"
+						/>
+						<p class="text-white text-center">Josue</p>
 					</div>
-					<div>
-						<img src={Test.src} alt="Participantes" class="w-[150px] mt-4 rounded-full shadow-lg" />
-						<p class="text-white text-center">Name</p>
+					<div class="flex-none">
+						<img
+							src={Test.src}
+							alt="Participantes"
+							class="w-[150px] mt-4 rounded-full shadow-lg"
+						/>
+						<p class="text-white text-center">Javier</p>
 					</div>
-					<div>
-						<img src={Test.src} alt="Participantes" class="w-[150px] mt-4 rounded-full shadow-lg" />
-						<p class="text-white text-center">Name</p>
+					<div class="flex-none">
+						<img
+							src={Test.src}
+							alt="Participantes"
+							class="w-[150px] mt-4 rounded-full shadow-lg"
+						/>
+						<p class="text-white text-center">Nico</p>
 					</div>
-					<div>
-						<img src={Test.src} alt="Participantes" class="w-[150px] mt-4 rounded-full shadow-lg" />
-						<p class="text-white text-center">Name</p>
+					<div class="flex-none">
+						<img
+							src={Test.src}
+							alt="Participantes"
+							class="w-[150px] mt-4 rounded-full shadow-lg"
+						/>
+						<p class="text-white text-center">Angel</p>
 					</div>
-					<div>
-						<img src={Virginia.src} alt="Participantes" class="w-[150px] mt-4 rounded-full shadow-lg" />
+					<div class="flex-none">
+						<img
+							src={Test.src}
+							alt="Participantes"
+							class="w-[150px] mt-4 rounded-full shadow-lg"
+						/>
+						<p class="text-white text-center">John</p>
+					</div>
+					<div class="flex-none">
+						<img
+							src={Test.src}
+							alt="Participantes"
+							class="w-[150px] mt-4 rounded-full shadow-lg"
+						/>
+						<p class="text-white text-center">Alberto</p>
+					</div>
+					<div class="flex-none">
+						<img
+							src={Test.src}
+							alt="Participantes"
+							class="w-[150px] mt-4 rounded-full shadow-lg"
+						/>
+						<p class="text-white text-center">Juan</p>
+					</div>
+					<div class="flex-none">
+						<img
+							src={Test.src}
+							alt="Participantes"
+							class="w-[150px] mt-4 rounded-full shadow-lg"
+						/>
+						<p class="text-white text-center">Miguel</p>
+					</div>
+					<div class="flex-none">
+						<img
+							src={Test.src}
+							alt="Participantes"
+							class="w-[150px] mt-4 rounded-full shadow-lg"
+						/>
+						<p class="text-white text-center">Angela</p>
+					</div>
+					<div class="flex-none">
+						<img
+							src={Test.src}
+							alt="Participantes"
+							class="w-[150px] mt-4 rounded-full shadow-lg"
+						/>
+						<p class="text-white text-center">Nayade</p>
+					</div>
+					<div class="flex-none">
+						<img
+							src={Test.src}
+							alt="Participantes"
+							class="w-[150px] mt-4 rounded-full shadow-lg"
+						/>
+						<p class="text-white text-center">Omar</p>
+					</div>
+					<div class="flex-none">
+						<img
+							src={Virginia.src}
+							alt="Participantes"
+							class="w-[150px] mt-4 rounded-full shadow-lg"
+						/>
 						<p class="text-white text-center">Virginia</p>
-					</div>				
+					</div>
+					<div class="flex-none">
+						<img
+							src={Test.src}
+							alt="Participantes"
+							class="w-[150px] mt-4 rounded-full shadow-lg"
+						/>
+						<p class="text-white text-center">Jafet</p>
+					</div>
+					<div class="flex-none">
+						<img
+							src={Test.src}
+							alt="Participantes"
+							class="w-[150px] mt-4 rounded-full shadow-lg"
+						/>
+						<p class="text-white text-center">Cosmin</p>
+					</div>
+					<div class="flex-none">
+						<img
+							src={Test.src}
+							alt="Participantes"
+							class="w-[150px] mt-4 rounded-full shadow-lg"
+						/>
+						<p class="text-white text-center">Jaime</p>
+					</div>
 				</div>
 			</div>
 		</div>
