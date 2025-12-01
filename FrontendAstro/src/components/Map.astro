@@ -1,0 +1,145 @@
+---
+interface Props {
+    latitude?: number;
+    longitude?: number;
+    zoom?: number;
+    height?: string;
+    markerText?: string;
+}
+
+const {
+    latitude = 40.4168,
+    longitude = -3.7038,
+    zoom = 13,
+    height = "400px",
+    markerText = "Estamos aquí",
+} = Astro.props;
+---
+
+<div
+    class="map-container"
+    data-lat={latitude}
+    data-lng={longitude}
+    data-zoom={zoom}
+    data-marker={markerText}
+>
+    <div id="map" style={`height: ${height}`}></div>
+</div>
+
+<style>
+    .map-container {
+        width: 100%;
+        border-radius: 26px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        position: relative;
+    }
+
+    #map {
+        width: 100%;
+        z-index: 1;
+    }
+
+    /* Loading state */
+    .map-container::before {
+        content: "Cargando mapa...";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #666;
+        font-size: 1.1rem;
+        z-index: 0;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .map-container {
+            border-radius: 26px;
+        }
+    }
+</style>
+
+<link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+/>
+
+<script>
+    // Import Leaflet
+    const script = document.createElement("script");
+    script.src = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js";
+    script.integrity = "sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=";
+    script.crossOrigin = "";
+
+    script.onload = () => {
+        const mapContainer = document.querySelector(".map-container");
+        if (!mapContainer) return;
+
+        const lat = parseFloat(
+            mapContainer.getAttribute("data-lat") || "40.4168",
+        );
+        const lng = parseFloat(
+            mapContainer.getAttribute("data-lng") || "-3.7038",
+        );
+        const zoom = parseInt(mapContainer.getAttribute("data-zoom") || "13");
+        const markerText =
+            mapContainer.getAttribute("data-marker") || "Estamos aquí";
+
+        // Initialize map
+        const map = (window as any).L.map("map").setView([lat, lng], zoom);
+
+        // Add tile layer
+        (window as any).L.tileLayer(
+            "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+            {
+                attribution:
+                    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                maxZoom: 19,
+            },
+        ).addTo(map);
+
+        // Custom icon
+        const customIcon = (window as any).L.divIcon({
+            className: "custom-marker",
+            html: `
+        <div style="
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          width: 40px;
+          height: 40px;
+          border-radius: 50% 50% 50% 0;
+          transform: rotate(-45deg);
+          border: 3px solid white;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        ">
+          <div style="
+            transform: rotate(45deg);
+            color: white;
+            font-size: 20px;
+          ">📍</div>
+        </div>
+      `,
+            iconSize: [40, 40],
+            iconAnchor: [20, 40],
+            popupAnchor: [0, -40],
+        });
+
+        // Add marker
+        const marker = (window as any).L.marker([lat, lng], {
+            icon: customIcon,
+        }).addTo(map);
+        marker.bindPopup(`<strong>${markerText}</strong>`).openPopup();
+
+        // Add zoom animation
+        setTimeout(() => {
+            map.invalidateSize();
+        }, 100);
+    };
+
+    document.head.appendChild(script);
+</script>

@@ -1,0 +1,404 @@
+---
+import Map from "../components/Map.astro";
+
+const pageTitle = "Contacto - FrontendAstro";
+---
+
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{pageTitle}</title>
+        <meta
+            name="description"
+            content="Ponte en contacto con nosotros. Estamos aquí para ayudarte con tus proyectos de desarrollo web."
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <main class="contact-page">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1 class="hero-title">
+                            <span class="gradient-text">Hablemos</span> de tu proyecto
+                        </h1>
+                        <p class="hero-subtitle">
+                            Estamos aquí para ayudarte a llevar tus ideas al
+                            siguiente nivel. Contáctanos y comencemos a crear
+                            algo increíble juntos.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section class="contact-section">
+                <div class="container">
+                    <div class="contact-grid">
+                        <!-- Contact Form -->
+                        <div class="contact-form-wrapper">
+                            <div class="form-header">
+                                <h2>Envíanos un mensaje</h2>
+                                <p>
+                                    Completa el formulario y te responderemos lo
+                                    antes posible
+                                </p>
+                            </div>
+
+                            <form class="contact-form" id="contactForm">
+                                <div class="form-group">
+                                    <label for="name">Nombre completo</label>
+                                    <input
+                                        type="text"
+                                        id="name"
+                                        name="name"
+                                        required
+                                        placeholder="Tu nombre"
+                                        autocomplete="name"
+                                    />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        required
+                                        placeholder="tu@email.com"
+                                        autocomplete="email"
+                                    />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="phone"
+                                        >Teléfono (opcional)</label
+                                    >
+                                    <input
+                                        type="tel"
+                                        id="phone"
+                                        name="phone"
+                                        placeholder="+34 600 000 000"
+                                        autocomplete="tel"
+                                    />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="message">Mensaje</label>
+                                    <textarea
+                                        id="message"
+                                        name="message"
+                                        rows="5"
+                                        required
+                                        placeholder="Cuéntanos más sobre tu proyecto o consulta..."
+                                    ></textarea>
+                                </div>
+
+                                <button type="submit" class="submit-btn">
+                                    <span class="btn-text">Enviar mensaje</span>
+                                    <span class="btn-icon">→</span>
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- Contact Info & Map -->
+                        <div class="contact-info-wrapper">
+                            <!-- Contact Cards -->
+                            <div class="info-cards">
+                                <div class="info-card">
+                                    <div class="card-icon">📧</div>
+                                    <h3>Email</h3>
+                                    <a href="mailto:info@frontendastro.com"
+                                        >info@frontendastro.com</a
+                                    >
+                                </div>
+
+                                <div class="info-card">
+                                    <div class="card-icon">📱</div>
+                                    <h3>Teléfono</h3>
+                                    <a href="tel:+34600000000"
+                                        >+34 600 000 000</a
+                                    >
+                                </div>
+
+                                <div class="info-card">
+                                    <div class="card-icon">📍</div>
+                                    <h3>Ubicación</h3>
+                                    <p>Centro Océano Atlántico</p>
+                                    <p
+                                        style="font-size: 0.85rem; margin-top: 0.25rem;"
+                                    >
+                                        Mercazaragoza, Zaragoza
+                                    </p>
+                                </div>
+
+                                <div class="info-card">
+                                    <div class="card-icon">⏰</div>
+                                    <h3>Horario</h3>
+                                    <p>Lun - Vie: 9:00 - 18:00</p>
+                                </div>
+                            </div>
+
+                            <!-- Map Component -->
+                            <div class="map-wrapper">
+                                <h3 class="map-title">Encuéntranos</h3>
+                                <Map
+                                    latitude={41.6819979}
+                                    longitude={-0.8528215}
+                                    zoom={15}
+                                    height="350px"
+                                    markerText="Centro Océano Atlántico - Mercazaragoza"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </body>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --dark-bg: #0f0f15;
+            --card-bg: #14141d;
+            --text-primary: #ffffff;
+            --text-secondary: #8a8fa3;
+            --border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        body {
+            font-family: "Ubuntu", sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 6rem 0 3rem;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #7b7df0, #a682ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 580px;
+            margin: 0 auto;
+        }
+
+        /* Contact Layout */
+        .contact-section {
+            padding: 4rem 0 6rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        /* Form */
+        .contact-form-wrapper {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 26px;
+            border: 1px solid var(--border-color);
+        }
+
+        .form-header h2 {
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-header p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.3rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-size: 0.9rem;
+            color: var(--text-primary);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem 1.1rem;
+            background: #1a1a24;
+            border: 1px solid var(--border-color);
+            border-radius: 26px;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            transition: border 0.25s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #7b7df0;
+            outline: none;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 0.9rem 2rem;
+            background: #7b7df0;
+            border: none;
+            border-radius: 26px;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.25s;
+        }
+
+        .submit-btn:hover {
+            opacity: 0.85;
+        }
+
+        /* Info cards */
+        .contact-info-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            padding: 1.4rem;
+            border-radius: 26px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: border 0.25s ease;
+        }
+
+        .info-card:hover {
+            border-color: #7b7df0;
+        }
+
+        .card-icon {
+            font-size: 1.7rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-card h3 {
+            margin-bottom: 0.4rem;
+            font-size: 0.95rem;
+        }
+
+        .info-card a,
+        .info-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            text-decoration: none;
+        }
+
+        /* Map */
+        .map-wrapper {
+            background: var(--card-bg);
+            padding: 1.8rem;
+            border-radius: 26px;
+            border: 1px solid var(--border-color);
+        }
+
+        .map-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form-wrapper {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .info-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-title {
+                font-size: 2.3rem;
+            }
+        }
+    </style>
+
+    <script>
+        const form = document.getElementById("contactForm") as HTMLFormElement;
+
+        form?.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            // Get form data
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            console.log("Form submitted:", data);
+
+            // Show success message
+            const submitBtn = form.querySelector(
+                ".submit-btn",
+            ) as HTMLButtonElement;
+            const originalText = submitBtn.innerHTML;
+
+            submitBtn.innerHTML = "<span>✓ Mensaje enviado</span>";
+            submitBtn.style.background =
+                "linear-gradient(135deg, #11998e 0%, #38ef7d 100%)";
+
+            // Reset form
+            setTimeout(() => {
+                form.reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.style.background = "";
+            }, 3000);
+        });
+    </script>
+</html>

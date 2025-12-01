@@ -1,12 +1,131 @@
 ---
-import Layout from '../layouts/Layout.astro';
-
+import Layout from "../layouts/Layout.astro";
+import Cursor from "../components/Cursor.astro";
 ---
 
 <Layout>
-	<main class="p-7">
-        <h2 class="font-[Open_Sans]">Hola soy John</h2>
-        <p class="font-[Open_Sans]">Bienvenido a mi página personal creada con Astro.</p>
-        
-    </main>
+  <body>
+    <Cursor />
+      <h1 class="text-3xl font-bold text-center mt-10">John</h1>
+      <p class="text-center mt-4">
+        Página personal de John. Aquí puede añadir sus aportes, proyectos o notas.
+      </p>
+      <main>
+		
+		
+		<div class="min-h-screen bg-gray-950 text-gray-100! font-sans selection:bg-purple-500 selection:text-white">
+
+            <section class="relative pt-32 pb-20 lg:pt-20 lg:pb-32 overflow-hidden">
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-purple-600/20 rounded-full blur-[120px] -z-10"></div>
+                
+                <div class="container mx-auto px-4 text-center">
+                <span class="inline-block py-1 px-3 rounded-full bg-gray-800 border border-gray-700 text-sm text-purple-300 mb-6">
+                    Disponible en jmgvicent@gmail.com
+                </span>
+                
+                <h1 class="text-5xl md:text-7xl text-gray-100! font-extrabold tracking-tight mb-0! leading-tight">
+                    Diseño visual que <br class="hidden md:block" />
+                    <span class="text-transparent bg-clip-text bg-linear-to-r from-purple-400 to-blue-700">
+                    cuenta historias.
+                    </span>
+                </h1>
+                
+                <p class="text-lg md:text-xl text-white! font-semibold mb-10 max-w-2xl mx-auto justify-self-center pt-10 pb-10">
+                    Especializado en Branding, UI Design e Ilustración Digital. Ayudo a marcas a encontrar su voz visual en un mundo ruidoso.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="https://johnvicent.es/portfolio" target="_blank" class="px-8 py-3.5 rounded-full bg-white text-gray-950 font-bold hover:bg-gray-200 transition-colors">
+                    Ver Proyectos
+                    </a>
+                    
+                    <a href="/cv-johngonzalezvicent.pdf" target="_blank" class="px-8 py-3.5 rounded-full border border-gray-700 text-gray-100! font-semibold hover:border-gray-400 hover:bg-gray-800 transition-all flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                    Descargar CV
+                    </a>
+                </div>
+                </div>
+            </section>
+
+            <section id="portfolio" class="py-20 bg-gray-900/50">
+                <div class="container mx-auto px-4">
+                <div class="flex justify-between items-end mb-12">
+                    <div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-2 text-amber-50!">Trabajos Seleccionados</h2>
+                    <p class="text-gray-200!">Una colección de mis últimos proyectos.</p>
+                    </div>
+                    <a href="https://johnvicent.es/portfolio" target="_blank" class="hidden md:inline-flex text-purple-400! font-semibold hover:text-purple-300 hover:font-black items-center gap-1">Ver todo <span>&rarr;</span></a>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-6 h-auto md:h-[800px]">
+                    
+                    <div class="group relative md:col-span-2 md:row-span-2 overflow-hidden rounded-2xl bg-gray-800">
+                    <img src="/zara-perspectiva.jpg" alt="Proyecto 1" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-60 group-hover:opacity-40">
+                    <div class="absolute bottom-0 left-0 p-8">
+                        <h3 class="text-2xl font-bold text-white! mb-1">Rebranding Corporativo</h3>
+                        <p class="text-gray-300!">Identidad Visual / Papelería</p>
+                    </div>
+                    </div>
+
+                    <div class="group relative overflow-hidden rounded-2xl bg-gray-800 h-64 md:h-auto">
+                    <img src="/mobile_design_mockup.jpg" alt="Proyecto 2" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-60 group-hover:opacity-40">
+                    <div class="absolute bottom-0 left-0 p-6">
+                        <h3 class="text-xl font-bold text-white!">App Móvil UI</h3>
+                        <p class="text-sm text-gray-300!">Figma / Prototipado</p>
+                    </div>
+                    </div>
+
+                    <div class="group relative overflow-hidden rounded-2xl bg-gray-800 h-64 md:h-auto">
+                    <img src="/ilustracion.png" alt="Proyecto 3" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-60 group-hover:opacity-40">
+                    <div class="absolute bottom-0 left-0 p-6">
+                        <h3 class="text-xl font-bold text-white!">Ilustración Editorial</h3>
+                        <p class="text-sm text-gray-300!">Adobe Illustrator</p>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </section>
+
+            <section id="servicios" class="py-20">
+                <div class="container mx-auto px-4 max-w-5xl pb-20">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl! md:text-4xl font-bold mb-4 text-amber-50!">Lo que hago</h2>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="p-8 rounded-2xl bg-gray-900 border border-gray-800 hover:border-purple-500/50 transition-colors group">
+                    <div class="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center mb-6 text-purple-400! group-hover:bg-purple-600 group-hover:text-white! transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-purple-400!">Branding</h3>
+                    <p class="text-gray-400! text-sm leading-relaxed">Creación de logotipos, paletas de colores y sistemas de diseño completos para marcas memorables.</p>
+                    </div>
+
+                    <div class="p-8 rounded-2xl bg-gray-900 border border-gray-800 hover:border-pink-500/50 transition-colors group">
+                    <div class="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center mb-6 text-pink-400! group-hover:bg-pink-600 group-hover:text-white! transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-pink-400!">Diseño Web / UI</h3>
+                    <p class="text-gray-400! text-sm leading-relaxed">Diseño de interfaces limpias y funcionales para sitios web y aplicaciones móviles.</p>
+                    </div>
+
+                    <div class="p-8 rounded-2xl bg-gray-900 border border-gray-800 hover:border-blue-500/50 transition-colors group">
+                    <div class="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center mb-6 text-blue-400! group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-blue-400!">Ilustración</h3>
+                    <p class="text-gray-400! text-sm leading-relaxed">Ilustraciones digitales personalizadas para editorial, publicidad o contenido social.</p>
+                    </div>
+                </div>
+                </div>
+		</main>
+      <div class="max-w-2xl mx-auto mt-6 p-4 bg-white rounded-lg shadow-md">
+        <h2 class="text-xl font-semibold mb-2">Contenido de ejemplo:</h2>
+        <ul class="list-disc list-inside">
+          <li>Proyecto de ejemplo 1</li>
+          <li>Proyecto de ejemplo 2</li>
+        </ul>
+      </div>
+  </body>
+
 </Layout>
