@@ -1,3 +1,7 @@
+---
+import DarkMode from "./DarkMode.astro";
+---
+
 <nav
   class="bg-neutral-primary fixed w-full z-20 top-0 start-0 border-b border-default"
 >
@@ -15,6 +19,7 @@
     <!-- Right section -->
     <div class="flex items-center md:order-2">
       <!-- Search (desktop) -->
+       <DarkMode />
       <div class="relative hidden md:block">
         <div
           class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none"
