@@ -57,25 +57,25 @@
                  bg-white border border-default rounded-base shadow-lg
                  px-4 py-2 flex flex-row gap-4
                  opacity-0 invisible group-hover:opacity-100 group-hover:visible
-                 transition-all"
+                 transition-all text-black"
       >
-        <li><a href="/hector">Héctor</a></li>
-        <li><a href="/gabriel">Gabriel</a></li>
-        <li><a href="/josue">Josue</a></li>
-        <li><a href="/javier">Javier</a></li>
-        <li><a href="/nico">Nico</a></li>
-        <li><a href="/angel">Angel</a></li>
-        <li><a href="/john">John</a></li>
-        <li><a href="/alberto">Alberto</a></li>
-        <li><a href="/juan">Juan</a></li>
-        <li><a href="/miguel">Miguel</a></li>
-        <li><a href="/angela">Angela</a></li>
-        <li><a href="/nayade">Nayade</a></li>
-        <li><a href="/omar">Omar</a></li>
-        <li><a href="/virginia">Virginia</a></li>
-        <li><a href="/jafet">Jafet</a></li>
-        <li><a href="/cosmin">Cosmin</a></li>
-        <li><a href="/jaime">Jaime</a></li>
+        <li><a href="/hector" class="text-black">Héctor</a></li>
+        <li><a href="/gabriel" class="text-black">Gabriel</a></li>
+        <li><a href="/josue" class="text-black">Josue</a></li>
+        <li><a href="/javier" class="text-black">Javier</a></li>
+        <li><a href="/nico" class="text-black">Nico</a></li>
+        <li><a href="/angel" class="text-black">Angel</a></li>
+        <li><a href="/john" class="text-black">John</a></li>
+        <li><a href="/alberto" class="text-black">Alberto</a></li>
+        <li><a href="/juan" class="text-black">Juan</a></li>
+        <li><a href="/miguel" class="text-black">Miguel</a></li>
+        <li><a href="/angela" class="text-black">Angela</a></li>
+        <li><a href="/nayade" class="text-black">Nayade</a></li>
+        <li><a href="/omar" class="text-black">Omar</a></li>
+        <li><a href="/virginia" class="text-black">Virginia</a></li>
+        <li><a href="/jafet" class="text-black">Jafet</a></li>
+        <li><a href="/cosmin" class="text-black">Cosmin</a></li>
+        <li><a href="/jaime" class="text-black">Jaime</a></li>
       </ul>
 
       <button class="text-heading font-medium ml-4"> Alumnos ▾ </button>
@@ -125,12 +125,12 @@
 
     matches.forEach((name) => {
       const li = document.createElement("li");
-      li.className = "px-3 py-2 hover:bg-gray-100 cursor-pointer";
+      li.className = "px-3 py-2 hover:bg-gray-100 cursor-pointer text-black";
 
       // Resaltar la coincidencia
       const index = name.indexOf(value);
       if (index !== -1) {
-        li.innerHTML = `${name.substring(0, index)}<span class="font-semibold text-brand">${name.substring(index, index + value.length)}</span>${name.substring(index + value.length)}`;
+        li.innerHTML = `${name.substring(0, index)}<span class="font-semibold text-brand text-black">${name.substring(index, index + value.length)}</span>${name.substring(index + value.length)}`;
       } else {
         li.textContent = name;
       }
