@@ -47,42 +47,47 @@ import Cursor from "../components/Cursor.astro";
                 </div>
             </section>
 
-            <section id="portfolio" class="py-20 bg-gray-900/50">
+            <section id="portfolio" class="py-20 bg-linear-to-r from-gray-50 to-purple-500">
                 <div class="container mx-auto px-4">
                 <div class="flex justify-between items-end mb-12">
                     <div>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-2 text-amber-50!">Trabajos Seleccionados</h2>
-                    <p class="text-gray-200!">Una colección de mis últimos proyectos.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-2 text-gray-800!">Trabajos Seleccionados</h2>
+                    <p class="text-gray-800!">Este ha sido mi aporte al desarrollo colaborativo de la web.</p>
                     </div>
-                    <a href="https://johnvicent.es/portfolio" target="_blank" class="hidden md:inline-flex text-purple-400! font-semibold hover:text-purple-300 hover:font-black items-center gap-1">Ver todo <span>&rarr;</span></a>
+                    <a href="https://johnvicent.es/portfolio" target="_blank" class="hidden md:inline-flex text-white! font-semibold hover:font-black items-center gap-1">Ver Portfolio Personal <span>&rarr;</span></a>
                 </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-6 h-auto md:h-[800px]">
-                    
-                    <div class="group relative md:col-span-2 md:row-span-2 overflow-hidden rounded-2xl bg-gray-800">
-                    <img src="/zara-perspectiva.jpg" alt="Proyecto 1" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-60 group-hover:opacity-40">
-                    <div class="absolute bottom-0 left-0 p-8">
-                        <h3 class="text-2xl font-bold text-white! mb-1">Rebranding Corporativo</h3>
-                        <p class="text-gray-300!">Identidad Visual / Papelería</p>
-                    </div>
-                    </div>
-
-                    <div class="group relative overflow-hidden rounded-2xl bg-gray-800 h-64 md:h-auto">
-                    <img src="/mobile_design_mockup.jpg" alt="Proyecto 2" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-60 group-hover:opacity-40">
-                    <div class="absolute bottom-0 left-0 p-6">
-                        <h3 class="text-xl font-bold text-white!">App Móvil UI</h3>
-                        <p class="text-sm text-gray-300!">Figma / Prototipado</p>
-                    </div>
+                <div>
+                    <!-- Grid de proyectos -->
+                    <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Proyecto 1 -->
+                    <div class="bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow">
+                        <img src="https://johnvicent.es/wp-content/uploads/2025/12/Captura-de-pantalla-2025-12-01-183526.png" alt="Proyecto 1" class="w-full h-48 object-cover" />
+                        <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-purple-400!">Implementación de Cursor Personalizado</h3>
+                        <p class="text-gray-400! text-sm leading-relaxed mb-4">Este fragmento crea un cursor 
+                          personalizado (una imagen que sigue al ratón) y lo hace moverse de forma suave, 
+                          con un efecto flotante.</p>
+                        <a href="#" class="text-purple-500! font-semibold hover:underline">Ver Proyecto &rarr;</a>
+                        </div>
                     </div>
 
-                    <div class="group relative overflow-hidden rounded-2xl bg-gray-800 h-64 md:h-auto">
-                    <img src="/ilustracion.png" alt="Proyecto 3" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-60 group-hover:opacity-40">
-                    <div class="absolute bottom-0 left-0 p-6">
-                        <h3 class="text-xl font-bold text-white!">Ilustración Editorial</h3>
-                        <p class="text-sm text-gray-300!">Adobe Illustrator</p>
+                    <!-- Proyecto 2 -->
+                    <div class="bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow">
+                        <img src="https://johnvicent.es/wp-content/uploads/2025/12/Captura-de-pantalla-2025-12-01-185807.png" alt="Proyecto 2" class="w-full h-48 object-cover" />
+                        <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-pink-400!">Rediseño del Isotipo Astro</h3>
+                        <p class="text-gray-400! text-sm leading-relaxed mb-4">Para que la imagen pueda verse tanto en pantallas claras como en fondos oscuros he rediseñado ligeramente el isotipo de Astro, 
+                          que es la tecnología con la que actualmente estamos trabajando.</p>
+                        <a href="#" class="text-pink-500! font-semibold hover:underline">Ver Proyecto &rarr;</a>
+                        </div>
                     </div>
-                    </div>
-                </div>
+
+                    <!-- Proyecto 3 -->
+                    <div class="bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow">
+                        <img src="/projects/project3.jpg" alt="Proyecto 3" class="w-full h-48 object-cover" />
+                        <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-blue-400!">Implementación en Pantalla"</h3>
+                        <p class="text-gray-400! text-sm leading-relaxed mb-4">Serie de ilustraciones digitales para un libro infantil que captura
                 </div>
             </section>
 
