@@ -5,14 +5,14 @@ import Layout from "../layouts/Layout.astro";
 <Layout>
   <nav class="cyber-nav">
     <ul class="cyber-menu">
-      <li><a href="#" class="cyber-link" data-text="INICIO">INICIO</a></li>
+      <li><a href="/" class="cyber-link" data-text="INICIO">INICIO</a></li>
       <li>
-        <a href="#" class="cyber-link" data-text="PROYECTOS">PROYECTOS</a>
+        <a href="/proyectos" class="cyber-link" data-text="PROYECTOS">PROYECTOS</a>
       </li>
       <li>
-        <a href="#" class="cyber-link" data-text="ANIMACIONES">ANIMACIONES</a>
+        <a href="https://gsap.com/" class="cyber-link" data-text="ANIMACIONES">ANIMACIONES</a>
       </li>
-      <li><a href="#" class="cyber-link" data-text="ABOUT">ABOUT</a></li>
+      <li><a href="/contacto" class="cyber-link" data-text="ABOUT">ABOUT</a></li>
     </ul>
   </nav>
 
@@ -699,15 +699,15 @@ import Layout from "../layouts/Layout.astro";
   function typeText() {
     if (currentIndex < fullText.length) {
       const currentText = fullText.substring(0, currentIndex + 1);
-      textDisplay.textContent = currentText;
-      glitchLayer1.textContent = currentText;
-      glitchLayer2.textContent = currentText;
+      if (textDisplay) textDisplay.textContent = currentText;
+      if (glitchLayer1) glitchLayer1.textContent = currentText;
+      if (glitchLayer2) glitchLayer2.textContent = currentText;
       currentIndex++;
 
       setTimeout(typeText, 80);
     } else {
-      cursor.style.display = "none";
-      statusIndicator.classList.remove("hidden");
+       if (cursor) cursor.style.display = "none";
+      if (statusIndicator) statusIndicator.classList.remove("hidden");
     }
   }
 
