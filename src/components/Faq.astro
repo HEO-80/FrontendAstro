@@ -1,0 +1,135 @@
+---
+const categories = [
+  {
+    name: "General",
+    items: [
+      {
+        q: "¿Qué es este proyecto?",
+        a: "Es un ejemplo completo de un componente FAQ usando Astro + Tailwind + DaisyUI."
+      },
+      {
+        q: "¿Para qué sirve?",
+        a: "Sirve para aprender a montar componentes con interactividad, estilos y organización avanzada."
+      }
+    ]
+  },
+  {
+    name: "Cuenta",
+    items: [
+      {
+        q: "¿Necesito registrarme?",
+        a: "No, este proyecto en clase no requiere login."
+      },
+      {
+        q: "¿Puedo cambiar mis datos?",
+        a: "En proyectos reales sí. Aquí solo estamos aprendiendo."
+      }
+    ]
+  },
+  {
+    name: "Técnico",
+    items: [
+      {
+        q: "¿Qué tecnologías usa?",
+        a: "Astro, TailwindCSS y DaisyUI."
+      },
+      {
+        q: "¿Puedo ampliar el componente?",
+        a: "Por supuesto, está pensado para extenderse fácilmente."
+      }
+    ]
+  }
+];
+---
+
+<div class="w-full max-w-4xl mx-auto p-4">
+
+  <!-- 🔎 BUSCADOR -->
+  <div class="mb-6">
+    <input 
+      id="faqSearch"
+      placeholder="Buscar pregunta..."
+      class="input input-bordered w-full"
+      oninput="filterFaq()"
+    />
+  </div>
+
+  <!-- 🧭 TABS DE CATEGORÍAS -->
+  <div role="tablist" class="tabs tabs-bordered mb-6" id="faqTabs">
+    {categories.map((cat, i) => (
+      <button
+        role="tab"
+        class={`tab ${i === 0 ? "tab-active font-bold" : ""}`}
+        onclick={`selectCategory(${i})`}
+      >
+        {cat.name}
+      </button>
+    ))}
+  </div>
+
+  <!-- 📦 CONTENEDOR DE TODAS LAS PREGUNTAS -->
+  <div id="faqContent" class="space-y-4">
+    {categories.map((cat, i) => (
+      <div class={`faq-category ${i === 0 ? "" : "hidden"}`} data-category={cat.name}>
+        
+        <!-- GRID (COLUMNAS EN DESKTOP) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+          {cat.items.map((item) => (
+            <div class="glass rounded-xl p-2 shadow-md transition-all hover:scale-[1.01]">
+              <div tabindex="0" class="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
+                <input type="checkbox" />
+                <div class="collapse-title text-lg font-semibold flex justify-between items-center">
+                  <span>{item.q}</span>
+                </div>
+                <div class="collapse-content">
+                  <p class="leading-relaxed">{item.a}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+
+        </div>
+
+      </div>
+    ))}
+  </div>
+</div>
+
+<!-- 🔧 JS interactividad -->
+<script is:raw>
+  let currentTab = 0;
+
+  function selectCategory(index) {
+    const tabs = document.querySelectorAll("#faqTabs .tab");
+    tabs.forEach((t) => t.classList.remove("tab-active", "font-bold"));
+    tabs[index].classList.add("tab-active", "font-bold");
+
+    currentTab = index;
+
+    const cats = document.querySelectorAll(".faq-category");
+    cats.forEach((c, i) => {
+      c.classList.toggle("hidden", i !== index);
+    });
+
+    filterFaq(); // Mantiene el filtrado activo
+  }
+
+  function filterFaq() {
+    const query = document
+      .getElementById("faqSearch")
+      .value.toLowerCase();
+
+    const categories = document.querySelectorAll(".faq-category");
+
+    categories.forEach((cat, ci) => {
+      if (ci !== currentTab) return;
+
+      const cards = cat.querySelectorAll(".glass");
+      cards.forEach((card) => {
+        const text = card.innerText.toLowerCase();
+        card.style.display = text.includes(query) ? "block" : "none";
+      });
+    });
+  }
+</script>
