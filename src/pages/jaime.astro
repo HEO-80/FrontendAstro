@@ -1,18 +1,41 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import lol from "../assets/lol.png";
 ---
 
-<Layout>
-  <h1 class="text-3xl font-bold text-center mt-10">Jaime</h1>
-  <p class="text-center mt-4">
-    Página personal de Jaime. Aquí puede añadir sus aportes, proyectos o notas.
-  </p>
+<Layout title="Jaime's LoL Page" description="Página dedicada a League of Legends">
+  <nav class="bg-black text-white border-b-4 border-yellow-400">
+    <div
+      class="mx-auto flex flex-col md:flex-row items-center justify-between
+             md:h-24 h-auto py-4 px-4 "
+    >
+        <img
+          src={lol.src}
+          alt="LoL Logo"
+          class="h-12 w-auto object-cover md:h-20"
+        />
+      <ul class="flex flex-col md:flex-row text-center text-lg mt-4 md:mt-0">
+        <li class="md:ml-8">
+          <a href="#" class="hover:text-yellow-400 transition">Inicio</a>
+        </li>
+        <li class="md:ml-8 mt-3 md:mt-0">
+          <a href="#" class="hover:text-yellow-400 transition">Noticias</a>
+        </li>
+        <li class="md:ml-8 mt-3 md:mt-0">
+          <a href="#" class="hover:text-yellow-400 transition">Guías</a>
+        </li>
+        <li class="md:ml-8 mt-3 md:mt-0">
+          <a href="#" class="hover:text-yellow-400 transition">Foros</a>
+        </li>
+        <li class="md:ml-8 mt-3 md:mt-0">
+          <a href="#" class="hover:text-yellow-400 transition">Tienda</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="flex justify-center mt-4 bg-gray-100 p-10 rounded-lg shadow-lg mx-4">
+    <h1 class="text-2xl font-bold">Bienvenido a mi web aqui hablaremos de este videojuego</h1>
+    
 
-  <div class="max-w-2xl mx-auto mt-6 p-4 bg-white rounded-lg shadow-md">
-    <h2 class="text-xl font-semibold mb-2">Contenido de ejemplo:</h2>
-    <ul class="list-disc list-inside">
-      <li>Proyecto de ejemplo 1</li>
-      <li>Proyecto de ejemplo 2</li>
-    </ul>
   </div>
 </Layout>
