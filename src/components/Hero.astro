@@ -5,17 +5,63 @@ import Virginia from "../assets/virginia.png";
 ---
 
 <style>
+	/* --- Animación por defecto (mobile) --- */
 	@keyframes scroll {
 		0% {
 			transform: translateX(100%);
 		}
 		100% {
-			transform: translateX(-100%);
-		}
+			transform: translateX(-5800px);
+		} /* distancia para pantallas pequeñas */
 	}
 
 	.animate-scroll {
 		animation: scroll 20s linear infinite;
+	}
+
+	/* --- sm (min-width: 640px) --- */
+	@media (min-width: 640px) {
+		@keyframes scroll-sm {
+			0% {
+				transform: translateX(100%);
+			}
+			100% {
+				transform: translateX(-300vw);
+			}
+		}
+		.animate-scroll {
+			animation: scroll-sm 20s linear infinite;
+		}
+	}
+
+	/* --- md (min-width: 768px) --- */
+	@media (min-width: 768px) {
+		@keyframes scroll-md {
+			0% {
+				transform: translateX(100%);
+			}
+			100% {
+				transform: translateX(-350vw);
+			}
+		}
+		.animate-scroll {
+			animation: scroll-md 20s linear infinite;
+		}
+	}
+
+	/* --- lg (min-width: 1024px) --- */
+	@media (min-width: 1024px) {
+		@keyframes scroll-lg {
+			0% {
+				transform: translateX(100%);
+			}
+			100% {
+				transform: translateX(-450vw);
+			} /* tu distancia original */
+		}
+		.animate-scroll {
+			animation: scroll-lg 20s linear infinite;
+		}
 	}
 </style>
 <main class="relative z-0 flex flex-col justify-center w-full h-[100vh]">
@@ -42,148 +88,151 @@ import Virginia from "../assets/virginia.png";
 			Curso frontend
 		</h1>
 		<div class="z-5 flex flex-col justify-center items-center w-[100vw]">
+			<!--
+			
+			-->
 			<p
 				style={`color: ${"rgba(" + Math.random() * 255 + ", " + Math.random() * 255 + ", " + Math.random() * 255 + ", 0.5)"}`}
 			>
 				Participantes
 			</p>
 			<div class="w-full overflow-hidden">
-				<div class="flex justify-center mt-10 gap-4 animate-scroll w-[100vw]">
+				<div class="flex mt-10 gap-4 animate-scroll scroll-sm scroll-md scroll-lg w-full">
 					<div class="flex-none">
 						<img
 							src={Test.src}
 							alt="Participantes"
-							class="w-[100px] mt-4 rounded-full shadow-lg"
+							class="w-[300px] mt-4 rounded-full shadow-lg"
 						/>
-						<p class="text-white text-center">Héctor</p>
+						<p class="text-white text-center text-3xl">Héctor</p>
 					</div>
 					<div class="flex-none">
 						<img
 							src={Test.src}
 							alt="Participantes"
-							class="w-[100px] mt-4 rounded-full shadow-lg"
+							class="w-[300px] mt-4 rounded-full shadow-lg"
 						/>
-						<p class="text-white text-center">Gabriel</p>
+						<p class="text-white text-center text-3xl">Gabriel</p>
 					</div>
 					<div class="flex-none">
 						<img
 							src={Test.src}
 							alt="Participantes"
-							class="w-[100px] mt-4 rounded-full shadow-lg"
+							class="w-[300px] mt-4 rounded-full shadow-lg"
 						/>
-						<p class="text-white text-center">Josue</p>
+						<p class="text-white text-center text-3xl">Josue</p>
 					</div>
 					<div class="flex-none">
 						<img
 							src={Test.src}
 							alt="Participantes"
-							class="w-[100px] mt-4 rounded-full shadow-lg"
+							class="w-[300px] mt-4 rounded-full shadow-lg"
 						/>
-						<p class="text-white text-center">Javier</p>
+						<p class="text-white text-center text-3xl">Javier</p>
 					</div>
 					<div class="flex-none">
 						<img
 							src={Test.src}
 							alt="Participantes"
-							class="w-[100px] mt-4 rounded-full shadow-lg"
+							class="w-[300px] mt-4 rounded-full shadow-lg"
 						/>
-						<p class="text-white text-center">Nico</p>
+						<p class="text-white text-center text-3xl">Nico</p>
 					</div>
 					<div class="flex-none">
 						<img
 							src={Test.src}
 							alt="Participantes"
-							class="w-[100px] mt-4 rounded-full shadow-lg"
+							class="w-[300px] mt-4 rounded-full shadow-lg"
 						/>
-						<p class="text-white text-center">Angel</p>
+						<p class="text-white text-center text-3xl">Angel</p>
 					</div>
 					<div class="flex-none">
 						<img
 							src={Test.src}
 							alt="Participantes"
-							class="w-[100px] mt-4 rounded-full shadow-lg"
+							class="w-[300px] mt-4 rounded-full shadow-lg"
 						/>
-						<p class="text-white text-center">John</p>
+						<p class="text-white text-center text-3xl">John</p>
 					</div>
 					<div class="flex-none">
 						<img
 							src={Test.src}
 							alt="Participantes"
-							class="w-[100px] mt-4 rounded-full shadow-lg"
+							class="w-[300px] mt-4 rounded-full shadow-lg"
 						/>
-						<p class="text-white text-center">Alberto</p>
+						<p class="text-white text-center text-3xl">Alberto</p>
 					</div>
 					<div class="flex-none">
 						<img
 							src={Test.src}
 							alt="Participantes"
-							class="w-[100px] mt-4 rounded-full shadow-lg"
+							class="w-[300px] mt-4 rounded-full shadow-lg"
 						/>
-						<p class="text-white text-center">Juan</p>
+						<p class="text-white text-center text-3xl">Juan</p>
 					</div>
 					<div class="flex-none">
 						<img
 							src={Test.src}
 							alt="Participantes"
-							class="w-[100px] mt-4 rounded-full shadow-lg"
+							class="w-[300px] mt-4 rounded-full shadow-lg"
 						/>
-						<p class="text-white text-center">Miguel</p>
+						<p class="text-white text-center text-3xl">Miguel</p>
 					</div>
 					<div class="flex-none">
 						<img
 							src={Test.src}
 							alt="Participantes"
-							class="w-[100px] mt-4 rounded-full shadow-lg"
+							class="w-[300px] mt-4 rounded-full shadow-lg"
 						/>
-						<p class="text-white text-center">Angela</p>
+						<p class="text-white text-center text-3xl">Angela</p>
 					</div>
 					<div class="flex-none">
 						<img
 							src={Test.src}
 							alt="Participantes"
-							class="w-[100px] mt-4 rounded-full shadow-lg"
+							class="w-[300px] mt-4 rounded-full shadow-lg"
 						/>
-						<p class="text-white text-center">Nayade</p>
+						<p class="text-white text-center text-3xl">Nayade</p>
 					</div>
 					<div class="flex-none">
 						<img
 							src={Test.src}
 							alt="Participantes"
-							class="w-[100px] mt-4 rounded-full shadow-lg"
+							class="w-[300px] mt-4 rounded-full shadow-lg"
 						/>
-						<p class="text-white text-center">Omar</p>
+						<p class="text-white text-center text-3xl">Omar</p>
 					</div>
 					<div class="flex-none">
 						<img
 							src={Virginia.src}
 							alt="Participantes"
-							class="w-[100px] mt-4 rounded-full shadow-lg"
+							class="w-[300px] mt-4 rounded-full shadow-lg"
 						/>
-						<p class="text-white text-center">Virginia</p>
+						<p class="text-white text-center text-3xl">Virginia</p>
 					</div>
 					<div class="flex-none">
 						<img
 							src={Test.src}
 							alt="Participantes"
-							class="w-[100px] mt-4 rounded-full shadow-lg"
+							class="w-[300px] mt-4 rounded-full shadow-lg"
 						/>
-						<p class="text-white text-center">Jafet</p>
+						<p class="text-white text-center text-3xl">Jafet</p>
 					</div>
 					<div class="flex-none">
 						<img
 							src={Test.src}
 							alt="Participantes"
-							class="w-[100px] mt-4 rounded-full shadow-lg"
+							class="w-[300px] mt-4 rounded-full shadow-lg"
 						/>
-						<p class="text-white text-center">Cosmin</p>
+						<p class="text-white text-center text-3xl">Cosmin</p>
 					</div>
 					<div class="flex-none">
 						<img
 							src={Test.src}
 							alt="Participantes"
-							class="w-[100px] mt-4 rounded-full shadow-lg"
+							class="w-[300px] mt-4 rounded-full shadow-lg"
 						/>
-						<p class="text-white text-center">Jaime</p>
+						<p class="text-white text-center text-3xl">Jaime</p>
 					</div>
 				</div>
 			</div>
