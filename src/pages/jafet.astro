@@ -1,18 +1,97 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Jafet from "../assets/jafet/foto.png";
+import HeaderVideo from "../assets/jafet/headerjafetweb.mp4";
+import VideoBackgroudComponent from "../components/VideoBackgroudComponent.astro";
 ---
 
 <Layout>
-  <h1 class="text-3xl font-bold text-center mt-10">Jafet</h1>
-  <p class="text-center mt-4">
-    Página personal de Jafet. Aquí puede añadir sus aportes, proyectos o notas.
-  </p>
+  <style>
+    /* contenedor */
+    .animated-gradient {
+      background: radial-gradient(
+        circle at top,
+        red 0%,
+        /* color más brillante en el centro */ #5d0e48 35%,
+        #844b6b 65%,
+        #140828 100%
+      );
+      background-position: top 10%;
+      background-size: 100% 100%;
+      animation: moveGradient 1s ease infinite;
+      min-height: 220px; /* ajustar según use */
+    }
 
-  <div class="max-w-2xl mx-auto mt-6 p-4 bg-white rounded-lg shadow-md">
-    <h2 class="text-xl font-semibold mb-2">Contenido de ejemplo:</h2>
-    <ul class="list-disc list-inside">
-      <li>Proyecto de ejemplo 1</li>
-      <li>Proyecto de ejemplo 2</li>
-    </ul>
-  </div>
+    @keyframes moveGradient {
+      0% {
+        background-position: 40% 50%;
+      }
+      50% {
+        background-position: 100% 0%;
+      }
+      100% {
+        background-position: 110% 50%;
+      }
+    }
+
+    .neon-border {
+      color: #fff;
+      border: 3px solid #a466ff;
+      border-radius: 100%;
+      animation: neonGlow 1.6s infinite alternate;
+    }
+
+    @keyframes neonGlow {
+      from {
+        box-shadow:
+          0 0 5px #a466ff,
+          0 0 10px #a466ff,
+          0 0 20px #a466ff;
+      }
+      to {
+        box-shadow:
+          0 0 15px #c084ff,
+          0 0 30px #c084ff,
+          0 0 45px #d7a6ff;
+      }
+    }
+
+    .neon-text {
+      color: transparent;
+      -webkit-text-stroke: 2px #a770ff; /* Color del borde */
+      animation: glow 1.8s infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow:
+          0 0 5px #a770ff,
+          0 0 10px #b780ff,
+          0 0 20px #c799ff;
+      }
+      to {
+        text-shadow:
+          0 0 15px #c799ff,
+          0 0 30px #d7aaff,
+          0 0 45px #e8c3ff;
+      }
+    }
+  </style>
+  <section class="relative flex justify-center h-[100vh]">
+    <VideoBackgroudComponent video={HeaderVideo} />
+    <div
+      class="w-full h-full absolute top-[2.5%] z-1 animated-gradient opacity-[0.7]"
+    >
+    </div>
+    <div
+      class="fixed z-3 top-[20%] text-white"
+    >
+      <img
+        src={Jafet.src}
+        class="w-[200px] h-[200px] rounded-full m-auto aspect-[0.25] neon-border"
+      />
+      <h1 class="text-3xl font-bold text-center mt-10 neon-text">Jafet Núñez González</h1>
+      <p class="text-center mt-4 neon-text">Tu desarrollador de confianza</p>
+    </div>
+  </section>
 </Layout>
