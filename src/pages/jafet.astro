@@ -1,18 +1,20 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import JafetHeader from "../components/jafet/HeaderJafet.astro"
+import HeaderVideo from "../assets/jafet/headerjafetweb.mp4";
+import VideoBackgroudComponent from "../components/VideoBackgroudComponent.astro";
+import { jafetTechskills } from "../data/data";
 ---
 
 <Layout>
-  <h1 class="text-3xl font-bold text-center mt-10">Jafet</h1>
-  <p class="text-center mt-4">
-    Página personal de Jafet. Aquí puede añadir sus aportes, proyectos o notas.
-  </p>
 
-  <div class="max-w-2xl mx-auto mt-6 p-4 bg-white rounded-lg shadow-md">
-    <h2 class="text-xl font-semibold mb-2">Contenido de ejemplo:</h2>
-    <ul class="list-disc list-inside">
-      <li>Proyecto de ejemplo 1</li>
-      <li>Proyecto de ejemplo 2</li>
-    </ul>
-  </div>
+  <section class="relative flex flex-col content-center h-[300vh]">
+    <JafetHeader></JafetHeader>
+    <div class="flex justify-around w-[50%] z-5 mt-[3rem] m-auto flex-wrap gap-5">
+      {jafetTechskills.map((element)=>{
+        return <img src={element} class="w-[50px]">
+      })}
+    </div>
+    <VideoBackgroudComponent video={HeaderVideo} />
+  </section>
 </Layout>

@@ -1,24 +1,33 @@
 ---
+import ButtonPush from "../components/ButtonPush.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
   <nav class="cyber-nav">
     <ul class="cyber-menu">
-      <li><a href="#" class="cyber-link" data-text="INICIO">INICIO</a></li>
+      <li><a href="/" class="cyber-link" data-text="INICIO">INICIO</a></li>
       <li>
-        <a href="#" class="cyber-link" data-text="PROYECTOS">PROYECTOS</a>
+        <a href="/gta3" class="cyber-link" data-text="Game GTA Cyberpunk"
+          >Game GTA Cyberpunk</a
+        >
       </li>
       <li>
-        <a href="#" class="cyber-link" data-text="ANIMACIONES">ANIMACIONES</a>
+        <a href="https://gsap.com/" class="cyber-link" data-text="ANIMACIONES"
+          >ANIMACIONES</a
+        >
       </li>
-      <li><a href="#" class="cyber-link" data-text="ABOUT">ABOUT</a></li>
+      <li>
+        <a href="/contacto" class="cyber-link" data-text="ABOUT">ABOUT</a>
+      </li>
     </ul>
   </nav>
 
   <h1>CyberPunk 2077</h1>
 
   <h2></h2>
+
+ 
 
   <div class="typing-container">
     <h3 id="typing-text" class="cyber-glitch-text">
@@ -30,6 +39,8 @@ import Layout from "../layouts/Layout.astro";
       <span id="glitch-layer-2" class="glitch-layer-2" aria-hidden="true"
       ></span>
     </h3>
+
+
 
     <div id="status-indicator" class="status-indicator hidden">
       <div class="status-dot"></div>
@@ -62,7 +73,8 @@ import Layout from "../layouts/Layout.astro";
   body {
     font-family: "Rajdhani", sans-serif;
     background: #0a0a0f;
-    background-image: radial-gradient(
+    background-image:
+      radial-gradient(
         circle at 20% 50%,
         rgba(255, 204, 0, 0.1) 0%,
         transparent 50%
@@ -91,10 +103,8 @@ import Layout from "../layouts/Layout.astro";
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(
-        rgba(255, 204, 0, 0.1) 1px,
-        transparent 1px
-      ),
+    background-image:
+      linear-gradient(rgba(255, 204, 0, 0.1) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255, 204, 0, 0.1) 1px, transparent 1px);
     background-size: 50px 50px;
     pointer-events: none;
@@ -470,7 +480,8 @@ import Layout from "../layouts/Layout.astro";
   body {
     font-family: "Rajdhani", sans-serif;
     background: #0a0a0f;
-    background-image: radial-gradient(
+    background-image:
+      radial-gradient(
         circle at 20% 50%,
         rgba(255, 204, 0, 0.1) 0%,
         transparent 50%
@@ -496,10 +507,8 @@ import Layout from "../layouts/Layout.astro";
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(
-        rgba(255, 204, 0, 0.1) 1px,
-        transparent 1px
-      ),
+    background-image:
+      linear-gradient(rgba(255, 204, 0, 0.1) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255, 204, 0, 0.1) 1px, transparent 1px);
     background-size: 50px 50px;
     pointer-events: none;
@@ -699,15 +708,15 @@ import Layout from "../layouts/Layout.astro";
   function typeText() {
     if (currentIndex < fullText.length) {
       const currentText = fullText.substring(0, currentIndex + 1);
-      textDisplay.textContent = currentText;
-      glitchLayer1.textContent = currentText;
-      glitchLayer2.textContent = currentText;
+      if (textDisplay) textDisplay.textContent = currentText;
+      if (glitchLayer1) glitchLayer1.textContent = currentText;
+      if (glitchLayer2) glitchLayer2.textContent = currentText;
       currentIndex++;
 
       setTimeout(typeText, 80);
     } else {
-      cursor.style.display = "none";
-      statusIndicator.classList.remove("hidden");
+      if (cursor) cursor.style.display = "none";
+      if (statusIndicator) statusIndicator.classList.remove("hidden");
     }
   }
 
