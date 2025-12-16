@@ -13,6 +13,13 @@ import RandomScroll from "../components/RandomScroll.astro";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>Curso Frontend</title>
+        <script>
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
   </head>
   <body class="flex flex-col min-h-screen">
     <!-- Random Scroll Component -->

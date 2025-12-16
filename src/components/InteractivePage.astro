@@ -1,0 +1,98 @@
+---
+import "../styles/global.css";
+---
+
+<!-- HEADER -->
+<header
+  class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-center py-10 rounded-b-3xl shadow-xl transition-all duration-500 hover:-translate-y-1 hover:from-pink-500 hover:to-purple-600"
+>
+  <h1 class="text-4xl font-bold tracking-wide">Componente de Javi</h1>
+
+  <nav class="mt-6 flex justify-center gap-6">
+    <a
+      class="px-5 py-2 bg-white/20 backdrop-blur rounded-xl text-white transition-all duration-300 hover:scale-110 hover:bg-white/30"
+      href="#">Home</a
+    >
+    <a
+      class="px-5 py-2 bg-white/20 backdrop-blur rounded-xl text-white transition-all duration-300 hover:scale-110 hover:bg-white/30"
+      href="#">Productos</a
+    >
+    <a
+      class="px-5 py-2 bg-white/20 backdrop-blur rounded-xl text-white transition-all duration-300 hover:scale-110 hover:bg-white/30"
+      href="#">Servicios</a
+    >
+    <a
+      class="px-5 py-2 bg-white/20 backdrop-blur rounded-xl text-white transition-all duration-300 hover:scale-110 hover:bg-white/30"
+      href="#">Contacto</a
+    >
+  </nav>
+</header>
+
+<!-- MAIN LAYOUT -->
+<div
+  class="flex flex-col lg:flex-row gap-6 w-[90%] max-w-[1400px] mx-auto mt-10"
+>
+  <!-- ASIDE -->
+  <aside
+    class="lg:w-64 bg-gradient-to-br from-amber-400 to-orange-500 text-white p-6 rounded-2xl shadow-lg transition-all duration-500 origin-left hover:translate-x-3 hover:rotate-y-6"
+  >
+    <h2 class="text-xl font-semibold mb-2">Opciones</h2>
+
+    <ul class="mt-4 space-y-3">
+      <li
+        class="border-b border-white/30 pb-2 transition-all hover:translate-x-2"
+      >
+        Perfil
+      </li>
+      <li
+        class="border-b border-white/30 pb-2 transition-all hover:translate-x-2"
+      >
+        Configuración
+      </li>
+      <li
+        class="border-b border-white/30 pb-2 transition-all hover:translate-x-2"
+      >
+        Ayuda
+      </li>
+    </ul>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="flex-1">
+    <!-- CARDS -->
+    <section class="grid md:grid-cols-3 gap-6">
+      <div
+        class="h-44 bg-gradient-to-br from-teal-300 to-cyan-400 rounded-2xl flex items-center justify-center text-xl font-semibold text-white shadow-xl transition-all duration-500 hover:rotate-3 hover:shadow-2xl"
+      >
+        ✨ Card 1
+      </div>
+
+      <div
+        class="h-44 bg-gradient-to-br from-violet-400 to-fuchsia-400 rounded-2xl flex items-center justify-center text-xl font-semibold text-white shadow-xl transition-all duration-500 hover:scale-110 hover:shadow-2xl"
+      >
+        🚀 Card 2
+      </div>
+
+      <div
+        class="h-44 bg-gradient-to-br from-rose-400 to-orange-400 rounded-2xl flex items-center justify-center text-xl font-semibold text-white shadow-xl transition-transform duration-500 hover:-rotate-y-12 origin-left"
+      >
+        🔥 Card 3
+      </div>
+    </section>
+
+    <!-- CONTENT BOX -->
+    <section
+      class="mt-8 bg-white p-8 rounded-2xl shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
+    >
+      <h2 class="text-2xl font-bold mb-4">Contenido Principal</h2>
+      <p class="text-gray-700 leading-relaxed">Bienvenido.</p>
+    </section>
+  </main>
+</div>
+
+<!-- FOOTER -->
+<footer
+  class="mt-12 w-[90%] max-w-[1400px] mx-auto bg-gray-900 text-gray-200 text-center py-6 rounded-2xl shadow-lg transition-all duration-500 hover:skew-x-3"
+>
+  © 2025
+</footer>
