@@ -1,0 +1,547 @@
+---
+// src/pages/minijuego-gabriel.astro
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Minijuego Gabriel">
+  <main>
+    <div class="game-wrapper">
+      <div class="game-container">
+        <h2>👾 Minijuego de Gabriel 👾</h2>
+        
+        <div class="memory-game-board" id="gameBoard"></div>
+        
+        <button id="resetBtn" class="reset-btn">Reiniciar Partida</button>
+      </div>
+      
+      <div class="back-link">
+        <a href="/">⬅ Volver al inicio</a>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style is:global>
+  /* --- ESTILOS GENERALES DE LA PÁGINA --- */
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    padding: 20px;
+  }
+
+  /* --- ESTILOS DEL JUEGO --- */
+  .game-container {
+    text-align: center;
+    padding: 30px;
+    background-color: #1e293b; /* Fondo oscuro */
+    border-radius: 20px;
+    max-width: 800px;
+    width: 100%;
+    color: white;
+    font-family: sans-serif;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 1px solid #334155;
+  }
+
+  h2 {
+    margin-bottom: 25px;
+    font-size: 2rem;
+    letter-spacing: 1px;
+    color: #f1f5f9;
+    text-transform: uppercase;
+  }
+
+  /* El Tablero (Grid) */
+  .memory-game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas */
+    gap: 15px;
+    perspective: 1000px; /* Efecto 3D */
+    margin-bottom: 30px;
+  }
+
+  /* La Carta */
+  .card {
+    background-color: transparent;
+    height: 120px;
+    cursor: pointer;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+  }
+
+  /* Clase para girar la carta */
+  .card.flipped {
+    transform: rotateY(180deg);
+  }
+
+  /* Caras de la carta */
+  .card-face {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.5rem;
+    backface-visibility: hidden; /* Oculta la parte trasera */
+    -webkit-backface-visibility: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  }
+
+  /* Cara Frontal (Emoji) */
+  .card-front {
+    background-color: white;
+    transform: rotateY(180deg);
+  }
+
+  /* Cara Trasera (Tapa Naranja) */
+  .card-back {
+    background: linear-gradient(135deg, #f09819 0%, #edde5d 100%);
+    color: #333;
+    transform: rotateY(0deg);
+    font-size: 3rem;
+    font-weight: bold;
+    border: 2px solid #fff;
+  }
+
+  .card:hover .card-back {
+    filter: brightness(1.1);
+    transform: scale(1.02);
+  }
+
+  /* Botón */
+  .reset-btn {
+    padding: 12px 30px;
+    background-color: #f09819;
+    color: #1e293b;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+
+  .reset-btn:hover {
+    background-color: #ffb347;
+    transform: translateY(-2px);
+  }
+
+  .back-link {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .back-link a {
+    color: #f09819;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  /* Responsive para móviles */
+  @media (max-width: 600px) {
+    .memory-game-board {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .card { height: 90px; }
+    .card-face { font-size: 2.5rem; }
+  }
+</style>
+
+---
+// src/pages/minijuego-gabriel.astro
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Minijuego Gabriel">
+  <main>
+    <div class="game-wrapper">
+      <div class="game-container">
+        <h2>👾 Minijuego de Gabriel 👾</h2>
+        
+        <div class="memory-game-board" id="gameBoard"></div>
+        
+        <button id="resetBtn" class="reset-btn">Reiniciar Partida</button>
+      </div>
+      
+      <div class="back-link">
+        <a href="/">⬅ Volver al inicio</a>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style is:global>
+  /* --- ESTILOS GENERALES DE LA PÁGINA --- */
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    padding: 20px;
+  }
+
+  /* --- ESTILOS DEL JUEGO --- */
+  .game-container {
+    text-align: center;
+    padding: 30px;
+    background-color: #1e293b; /* Fondo oscuro */
+    border-radius: 20px;
+    max-width: 800px;
+    width: 100%;
+    color: white;
+    font-family: sans-serif;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 1px solid #334155;
+  }
+
+  h2 {
+    margin-bottom: 25px;
+    font-size: 2rem;
+    letter-spacing: 1px;
+    color: #f1f5f9;
+    text-transform: uppercase;
+  }
+
+  /* El Tablero (Grid) */
+  .memory-game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas */
+    gap: 15px;
+    perspective: 1000px; /* Efecto 3D */
+    margin-bottom: 30px;
+  }
+
+  /* La Carta */
+  .card {
+    background-color: transparent;
+    height: 120px;
+    cursor: pointer;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+  }
+
+  /* Clase para girar la carta */
+  .card.flipped {
+    transform: rotateY(180deg);
+  }
+
+  /* Caras de la carta */
+  .card-face {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.5rem;
+    backface-visibility: hidden; /* Oculta la parte trasera */
+    -webkit-backface-visibility: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  }
+
+  /* Cara Frontal (Emoji) */
+  .card-front {
+    background-color: white;
+    transform: rotateY(180deg);
+  }
+
+  /* Cara Trasera (Tapa Naranja) */
+  .card-back {
+    background: linear-gradient(135deg, #f09819 0%, #edde5d 100%);
+    color: #333;
+    transform: rotateY(0deg);
+    font-size: 3rem;
+    font-weight: bold;
+    border: 2px solid #fff;
+  }
+
+  .card:hover .card-back {
+    filter: brightness(1.1);
+    transform: scale(1.02);
+  }
+
+  /* Botón */
+  .reset-btn {
+    padding: 12px 30px;
+    background-color: #f09819;
+    color: #1e293b;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+
+  .reset-btn:hover {
+    background-color: #ffb347;
+    transform: translateY(-2px);
+  }
+
+  .back-link {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .back-link a {
+    color: #f09819;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  /* Responsive para móviles */
+  @media (max-width: 600px) {
+    .memory-game-board {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .card { height: 90px; }
+    .card-face { font-size: 2.5rem; }
+  }
+</style>
+
+<script>
+  // --- LÓGICA DEL JUEGO ---
+  
+  // Variables de estado
+  let hasFlippedCard = false;
+  let lockBoard = false;
+  let firstCard: HTMLElement | null = null;
+  let secondCard: HTMLElement | null = null;
+  let matchedPairs = 0;
+
+  // Esperamos a que cargue la página
+  document.addEventListener('astro:page-load', initGame); // Soporte para ViewTransitions
+  document.addEventListener('DOMContentLoaded', initGame);
+
+  function initGame() {
+    const board = document.getElementById('gameBoard');
+    const resetBtn = document.getElementById('resetBtn');
+
+    // Si no estamos en la página correcta, paramos
+    if (!board || !resetBtn) return;
+
+    // Emojis del juego
+    const items = ['🚀', '🪐', '👽', '🛰️', '☄️', '👾'];
+    let gameGrid = [...items, ...items];
+
+    // Función para barajar
+    function shuffle(array: any[]) {
+      array.sort(() => 0.5 - Math.random());
+    }
+
+    // Crear el tablero
+    function createBoard() {
+      if (!board) return;
+      board.innerHTML = '';
+      shuffle(gameGrid);
+
+      gameGrid.forEach((item) => {
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.dataset.name = item;
+
+        card.innerHTML = `
+          <div class="card-face card-front">${item}</div>
+          <div class="card-face card-back">?</div>
+        `;
+
+        card.addEventListener('click', flipCard);
+        board.appendChild(card);
+      });
+    }
+
+    // Girar carta
+    function flipCard(this: HTMLElement) {
+      if (lockBoard) return;
+      if (this === firstCard) return;
+
+      this.classList.add('flipped');
+
+      if (!hasFlippedCard) {
+        hasFlippedCard = true;
+        firstCard = this;
+        return;
+      }
+
+      secondCard = this;
+      checkForMatch();
+    }
+
+    // Comprobar pareja
+    function checkForMatch() {
+      let isMatch = firstCard?.dataset.name === secondCard?.dataset.name;
+      isMatch ? disableCards() : unflipCards();
+    }
+
+    // Si aciertas
+    function disableCards() {
+      if (firstCard && secondCard) {
+        firstCard.removeEventListener('click', flipCard);
+        secondCard.removeEventListener('click', flipCard);
+      }
+      
+      matchedPairs++;
+      if (matchedPairs === items.length) {
+        setTimeout(() => alert("¡Ganaste! 🎉"), 500);
+      }
+      resetBoardVariables();
+    }
+
+    // Si fallas
+    function unflipCards() {
+      lockBoard = true;
+      setTimeout(() => {
+        if (firstCard && secondCard) {
+          firstCard.classList.remove('flipped');
+          secondCard.classList.remove('flipped');
+        }
+        resetBoardVariables();
+      }, 1000);
+    }
+
+    function resetBoardVariables() {
+      hasFlippedCard = false;
+      lockBoard = false;
+      firstCard = null;
+      secondCard = null;
+    }
+
+    resetBtn.addEventListener('click', () => {
+      matchedPairs = 0;
+      resetBoardVariables();
+      createBoard();
+    });
+
+    // Arrancar
+    createBoard();
+  }
+</script><script>
+  // --- LÓGICA DEL JUEGO ---
+  
+  // Variables de estado
+  let hasFlippedCard = false;
+  let lockBoard = false;
+  let firstCard: HTMLElement | null = null;
+  let secondCard: HTMLElement | null = null;
+  let matchedPairs = 0;
+
+  // Esperamos a que cargue la página
+  document.addEventListener('astro:page-load', initGame); // Soporte para ViewTransitions
+  document.addEventListener('DOMContentLoaded', initGame);
+
+  function initGame() {
+    const board = document.getElementById('gameBoard');
+    const resetBtn = document.getElementById('resetBtn');
+
+    // Si no estamos en la página correcta, paramos
+    if (!board || !resetBtn) return;
+
+    // Emojis del juego
+    const items = ['🚀', '🪐', '👽', '🛰️', '☄️', '👾'];
+    let gameGrid = [...items, ...items];
+
+    // Función para barajar
+    function shuffle(array: any[]) {
+      array.sort(() => 0.5 - Math.random());
+    }
+
+    // Crear el tablero
+    function createBoard() {
+      if (!board) return;
+      board.innerHTML = '';
+      shuffle(gameGrid);
+
+      gameGrid.forEach((item) => {
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.dataset.name = item;
+
+        card.innerHTML = `
+          <div class="card-face card-front">${item}</div>
+          <div class="card-face card-back">?</div>
+        `;
+
+        card.addEventListener('click', flipCard);
+        board.appendChild(card);
+      });
+    }
+
+    // Girar carta
+    function flipCard(this: HTMLElement) {
+      if (lockBoard) return;
+      if (this === firstCard) return;
+
+      this.classList.add('flipped');
+
+      if (!hasFlippedCard) {
+        hasFlippedCard = true;
+        firstCard = this;
+        return;
+      }
+
+      secondCard = this;
+      checkForMatch();
+    }
+
+    // Comprobar pareja
+    function checkForMatch() {
+      let isMatch = firstCard?.dataset.name === secondCard?.dataset.name;
+      isMatch ? disableCards() : unflipCards();
+    }
+
+    // Si aciertas
+    function disableCards() {
+      if (firstCard && secondCard) {
+        firstCard.removeEventListener('click', flipCard);
+        secondCard.removeEventListener('click', flipCard);
+      }
+      
+      matchedPairs++;
+      if (matchedPairs === items.length) {
+        setTimeout(() => alert("¡Ganaste! 🎉"), 500);
+      }
+      resetBoardVariables();
+    }
+
+    // Si fallas
+    function unflipCards() {
+      lockBoard = true;
+      setTimeout(() => {
+        if (firstCard && secondCard) {
+          firstCard.classList.remove('flipped');
+          secondCard.classList.remove('flipped');
+        }
+        resetBoardVariables();
+      }, 1000);
+    }
+
+    function resetBoardVariables() {
+      hasFlippedCard = false;
+      lockBoard = false;
+      firstCard = null;
+      secondCard = null;
+    }
+
+    resetBtn.addEventListener('click', () => {
+      matchedPairs = 0;
+      resetBoardVariables();
+      createBoard();
+    });
+
+    // Arrancar
+    createBoard();
+  }
+</script>

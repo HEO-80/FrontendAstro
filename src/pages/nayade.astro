@@ -1,5 +1,130 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Footer from "../components/Footer.astro";
+import { gems } from '../data/nayade/gems.js'; // importa tus datos
 ---
 
+<Layout>
+  <main class="nayade-page">
+    <div class="cursor"></div>
+    <nav><p>Houseki no Kuni</p></nav>
+    <div class="gallery"></div>
+  </main>
+  
+  <script>
+    import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
+const initAnimations = () => {
+  const cursor = document.querySelector(".cursor");
+  const gallery = document.querySelector(".gallery");
+
+  const gems = JSON.parse('@json(gems)');
+  const numberOfItems = gems.length;
+  const radius = 1100;
+  const centerX = window.innerWidth / 2;
+  const centerY = window.innerHeight / 2;
+  const angleIncrement = (2 * Math.PI) / numberOfItems;
+
+  // -----------------------------
+  // Create items
+  // -----------------------------
+  gems.forEach((gem, i) => {
+    const item = document.createElement("div");
+    item.className = "item";
+
+    const p = document.createElement("p");
+    const count = document.createElement("span");
+
+    p.textContent = gem.name;
+    count.textContent = `(${Math.floor(Math.random() * 50) + 1})`;
+
+    p.appendChild(count);
+    item.appendChild(p);
+    gallery.appendChild(item);
+
+    const angle = i * angleIncrement;
+    const x = centerX + radius * Math.cos(angle);
+    const y = centerY + radius * Math.sin(angle);
+
+    gsap.set(item, {
+      x,
+      y,
+      rotation: angle * 180 / Math.PI,
+    });
+
+    // Hover image
+    item.addEventListener("mouseenter", () => {
+      const img = document.createElement("img");
+      img.src = `/src/assets/nayade/img${i + 1}.webp`;
+      img.style.clipPath = "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)";
+      document.body.appendChild(img);
+
+      gsap.to(img, {
+        clipPath: "polygon(0 100%, 100% 100%, 100% 0%, 0 0%)",
+        duration: 1,
+        ease: "power3.out",
+      });
+    });
+
+    item.addEventListener("mouseleave", () => {
+      document.querySelectorAll("img").forEach(img => img.remove());
+    });
+  });
+
+  // -----------------------------
+  // Circular scroll animation
+  // -----------------------------
+  ScrollTrigger.create({
+    trigger: document.body,
+    start: "top top",
+    end: "bottom bottom",
+    scrub: true,
+    onUpdate: self => {
+      const scrollAmount = self.progress * 2;
+
+      document.querySelectorAll(".item").forEach((item, i) => {
+        const angle = i * angleIncrement + scrollAmount;
+
+        gsap.to(item, {
+          x: centerX + radius * Math.cos(angle),
+          y: centerY + radius * Math.sin(angle),
+          rotation: angle * 180 / Math.PI,
+          duration: 0.1,
+          ease: "power2.out",
+        });
+      });
+    }
+  });
+
+  // -----------------------------
+  // Cursor
+  // -----------------------------
+  document.addEventListener("mousemove", e => {
+    gsap.to(cursor, {
+      x: e.clientX - 150,
+      y: e.clientY - 200,
+      duration: 0.1,
+      ease: "power3.out",
+    });
+  });
+};
+
+// Init
+initAnimations();
+
+
+  </script>
+
+  <style scoped>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html, body { width:100%; height:100%; font-family:"Circular Std"; background:#000; }
+    .cursor { position: fixed; width:300px; height:400px; pointer-events:none; z-index:10; }
+    nav { position:fixed; top:0; width:100%; padding:2em; z-index:20; color:#fff; }
+    .gallery { position:relative; width:100%; height:100vh; overflow:visible; }
+    .item { position:absolute; transform:translate(-50%, -50%); width:200px; height:80px; cursor:pointer; color:#fff; }
+    .item p { font-size:32px; font-weight:500; text-transform:uppercase; }
+    .item p span { font-size:16px; padding-left:5px; }
+  </style>
+</Layout>
