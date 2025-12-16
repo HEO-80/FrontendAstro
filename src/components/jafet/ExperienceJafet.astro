@@ -1,0 +1,30 @@
+---
+import { jafetExperience } from "../../data/data";
+---
+
+<div class="text-white z-5 mt-[6rem] flex w-full" id="lateral-scroll">
+    {
+        jafetExperience.map((item) => {
+            return (
+                <div class="w-[100vw] p-5">
+                    <h2>{item.title}</h2>
+                    <p>{item.dates}</p>
+                    <p>{item.description}</p>
+                </div>
+            );
+        })
+    }
+</div>
+<script>
+    import { gsap } from "gsap";
+
+    import { Observer } from "gsap/Observer";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+    // ScrollSmoother requires ScrollTrigger
+    import { ScrollSmoother } from "gsap/ScrollSmoother";
+    import { TextPlugin } from "gsap/TextPlugin";
+    gsap.registerPlugin(Observer,ScrollTrigger,ScrollSmoother,TextPlugin);
+    gsap.to(document.getElementById('lateral-scroll'), {
+        width : document.getElementById('lateral-scroll')?.clientWidth  + 100
+    })
+</script>
