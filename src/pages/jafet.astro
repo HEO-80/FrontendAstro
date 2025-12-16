@@ -1,20 +1,28 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import JafetHeader from "../components/jafet/HeaderJafet.astro"
+import JafetHeader from "../components/jafet/HeaderJafet.astro";
 import HeaderVideo from "../assets/jafet/headerjafetweb.mp4";
 import VideoBackgroudComponent from "../components/VideoBackgroudComponent.astro";
 import { jafetTechskills } from "../data/data";
+import ExperienceJafet from "../components/jafet/ExperienceJafet.astro";
 ---
-
 <Layout>
-
   <section class="relative flex flex-col content-center h-[300vh]">
-    <JafetHeader></JafetHeader>
-    <div class="flex justify-around w-[50%] z-5 mt-[3rem] m-auto flex-wrap gap-5">
-      {jafetTechskills.map((element)=>{
-        return <img src={element} class="w-[50px]">
-      })}
+    <JafetHeader />
+    <div
+      class="flex justify-around w-[50%] z-5 mt-[3rem] m-auto flex-wrap gap-5"
+    >
+      {
+        jafetTechskills.map((element) => {
+          return (
+            <div class="w-[50px] bg-black/20 rounded-full">
+              <img src={element} class="rounded-full" />
+            </div>
+          );
+        })
+      }
     </div>
+    <ExperienceJafet></ExperienceJafet>
     <VideoBackgroudComponent video={HeaderVideo} />
   </section>
 </Layout>
