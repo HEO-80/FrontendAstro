@@ -1,18 +1,448 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { ProjectCard } from "../components/ProjectCard";
 ---
 
 <Layout>
-  <h1 class="text-3xl font-bold text-center mt-10">Alberto</h1>
-  <p class="text-center mt-4">
-    Página personal de Alberto. Aquí puede añadir sus aportes, proyectos o notas.
-  </p>
+    <!-- Floating Elements -->
+    <div class="absolute inset-0">
+      <div
+        class="floating-blob absolute top-20 left-10 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20"
+      >
+      </div>
+      <div
+        class="floating-blob-delayed absolute top-40 right-20 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20"
+      >
+      </div>
+      <div
+        class="floating-blob-slow absolute bottom-20 left-1/3 w-80 h-80 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20"
+      >
+      </div>
+    </div>
 
-  <div class="max-w-2xl mx-auto mt-6 p-4 bg-white rounded-lg shadow-md">
-    <h2 class="text-xl font-semibold mb-2">Contenido de ejemplo:</h2>
-    <ul class="list-disc list-inside">
-      <li>Proyecto de ejemplo 1</li>
-      <li>Proyecto de ejemplo 2</li>
-    </ul>
-  </div>
+    <!-- Content -->
+    <div class="relative z-10 text-center px-4">
+      <h1
+        class="glitch-title text-6xl md:text-8xl lg:text-9xl font-black mb-6 text-white"
+        data-text="ALBERTO"
+      >
+        ALBERTO
+      </h1>
+
+      <p
+        class="text-xl md:text-2xl text-pink-400 mb-4 animate-fade-in-up opacity-0"
+        style="animation-delay: 0.2s;"
+      >
+        Frontend Developer
+      </p>
+
+      <p
+        class="text-lg text-gray-300 mb-8 max-w-2xl mx-auto animate-fade-in-up opacity-0"
+        style="animation-delay: 0.4s;"
+      >
+        Creando experiencias digitales únicas con código y creatividad
+      </p>
+
+      <div
+        class="flex flex-wrap gap-4 justify-center animate-fade-in-up opacity-0 mb-12"
+        style="animation-delay: 0.6s;"
+      >
+        <a
+          href="#proyectos"
+          class="px-8 py-4 bg-gradient-to-r from-pink-600 to-purple-600 text-white font-bold rounded-full hover:scale-110 transition-transform shadow-lg shadow-pink-500/50"
+        >
+          Ver Proyectos
+        </a>
+
+        <a
+          href="#skills"
+          class="px-8 py-4 border-2 border-pink-500 text-pink-400 font-bold rounded-full hover:bg-pink-500/10 hover:scale-110 transition-all"
+        >
+          Habilidades
+        </a>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+
+    <div
+      class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce-slow z-20"
+    >
+      <svg
+        class="w-8 h-8 text-pink-400"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section
+    id="skills"
+    class="relative py-20 px-4 bg-gradient-to-b from-black to-purple-950"
+  >
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-4xl md:text-6xl font-black text-center mb-16">
+        <span
+          class="bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 bg-clip-text text-transparent"
+        >
+          HABILIDADES
+        </span>
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Skill Card 1 -->
+        <div
+          class="skill-card group relative bg-gradient-to-br from-pink-900/20 to-purple-900/20 backdrop-blur-sm border border-pink-500/30 rounded-2xl p-6 hover:border-pink-500 transition-all hover:-translate-y-2"
+        >
+          <div
+            class="absolute inset-0 bg-gradient-to-br from-pink-600/0 to-purple-600/0 group-hover:from-pink-600/10 group-hover:to-purple-600/10 rounded-2xl transition-all"
+          >
+          </div>
+          <div class="relative">
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-pink-500 to-purple-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"
+            >
+              <span class="text-3xl">🎨</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-2">HTML5 & CSS3</h3>
+            <p class="text-gray-400">
+              Desarrollo semántico y responsive design con las últimas
+              tecnologías
+            </p>
+          </div>
+        </div>
+
+        <!-- Skill Card 2 -->
+        <div
+          class="skill-card group relative bg-gradient-to-br from-pink-900/20 to-purple-900/20 backdrop-blur-sm border border-pink-500/30 rounded-2xl p-6 hover:border-pink-500 transition-all hover:-translate-y-2"
+        >
+          <div
+            class="absolute inset-0 bg-gradient-to-br from-pink-600/0 to-purple-600/0 group-hover:from-pink-600/10 group-hover:to-purple-600/10 rounded-2xl transition-all"
+          >
+          </div>
+          <div class="relative">
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"
+            >
+              <span class="text-3xl">⚡</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-2">TypeScript</h3>
+            <p class="text-gray-400">
+              Desarrollo interactivo y dinámico con TypeScript y React
+            </p>
+          </div>
+        </div>
+
+        <!-- Skill Card 3 -->
+        <div
+          class="skill-card group relative bg-gradient-to-br from-pink-900/20 to-purple-900/20 backdrop-blur-sm border border-pink-500/30 rounded-2xl p-6 hover:border-pink-500 transition-all hover:-translate-y-2"
+        >
+          <div
+            class="absolute inset-0 bg-gradient-to-br from-pink-600/0 to-purple-600/0 group-hover:from-pink-600/10 group-hover:to-purple-600/10 rounded-2xl transition-all"
+          >
+          </div>
+          <div class="relative">
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"
+            >
+              <span class="text-3xl">💨</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-2">Tailwind CSS</h3>
+            <p class="text-gray-400">Diseño rápido y eficiente</p>
+          </div>
+        </div>
+
+        <!-- Skill Card 4 -->
+        <div
+          class="skill-card group relative bg-gradient-to-br from-pink-900/20 to-purple-900/20 backdrop-blur-sm border border-pink-500/30 rounded-2xl p-6 hover:border-pink-500 transition-all hover:-translate-y-2"
+        >
+          <div
+            class="absolute inset-0 bg-gradient-to-br from-pink-600/0 to-purple-600/0 group-hover:from-pink-600/10 group-hover:to-purple-600/10 rounded-2xl transition-all"
+          >
+          </div>
+          <div class="relative">
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"
+            >
+              <span class="text-3xl">🚀</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-2">Git & GitHub</h3>
+            <p class="text-gray-400">
+              Control de versiones y colaboración en proyectos
+            </p>
+          </div>
+        </div>
+
+        <!-- Skill Card 5 -->
+        <div
+          class="skill-card group relative bg-gradient-to-br from-pink-900/20 to-purple-900/20 backdrop-blur-sm border border-pink-500/30 rounded-2xl p-6 hover:border-pink-500 transition-all hover:-translate-y-2"
+        >
+          <div
+            class="absolute inset-0 bg-gradient-to-br from-pink-600/0 to-purple-600/0 group-hover:from-pink-600/10 group-hover:to-purple-600/10 rounded-2xl transition-all"
+          >
+          </div>
+          <div class="relative">
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"
+            >
+              <span class="text-3xl">✨</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-2">Animaciones</h3>
+            <p class="text-gray-400">
+              CSS animations, Tailwind keyframes y GSAP
+            </p>
+          </div>
+        </div>
+
+        <!-- Skill Card 6 -->
+        <div
+          class="skill-card group relative bg-gradient-to-br from-pink-900/20 to-purple-900/20 backdrop-blur-sm border border-pink-500/30 rounded-2xl p-6 hover:border-pink-500 transition-all hover:-translate-y-2"
+        >
+          <div
+            class="absolute inset-0 bg-gradient-to-br from-pink-600/0 to-purple-600/0 group-hover:from-pink-600/10 group-hover:to-purple-600/10 rounded-2xl transition-all"
+          >
+          </div>
+          <div class="relative">
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"
+            >
+              <span class="text-3xl">⚛️</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-2">React</h3>
+            <p class="text-gray-400">
+              Componentes modernos y aplicaciones interactivas
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="proyectos" class="relative py-20 px-4 bg-black">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-4xl md:text-6xl font-black text-center mb-16">
+        <span
+          class="bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 bg-clip-text text-transparent"
+        >
+          PROYECTOS
+        </span>
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <ProjectCard
+          title="Astro Tickets"
+          description="Aplicación de tickets y eventos creada con Astro, mostrando manejo de estado, rutas dinámicas y componentes interactivos. Proyecto principal del curso."
+          githubUrl="https://github.com/albertoguinda/astro-tickets"
+          deployUrl="https://astro-tickets.vercel.app/"
+          tags={["Astro", "Tailwind", "TypeScript", "React", "GSAP"]}
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section
+    class="relative py-32 px-4 overflow-hidden bg-gradient-to-br from-pink-900 via-purple-900 to-black"
+  >
+    <div
+      class="absolute inset-0 opacity-10"
+      style="background-image: linear-gradient(rgba(236, 72, 153, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(236, 72, 153, 0.1) 1px, transparent 1px); background-size: 50px 50px;"
+    >
+    </div>
+
+    <div class="relative max-w-4xl mx-auto text-center">
+      <h2 class="text-4xl md:text-6xl font-black text-white mb-6">
+        ¿Listo para crear algo
+        <span
+          class="block bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 bg-clip-text text-transparent"
+        >
+          INCREÍBLE?
+        </span>
+      </h2>
+
+      <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+        Siempre estoy buscando nuevos desafíos y proyectos interesantes
+      </p>
+
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a
+          href="mailto:albertoguindasevilla@gmail.com"
+          class="px-8 py-4 bg-gradient-to-r from-pink-600 to-purple-600 text-white font-bold rounded-full hover:scale-110 transition-transform shadow-lg shadow-pink-500/50"
+        >
+          Contactar
+        </a>
+        <a
+          href="https://github.com/albertoguinda"
+          target="_blank"
+          class="px-8 py-4 border-2 border-pink-500 text-pink-400 font-bold rounded-full hover:bg-pink-500/10 hover:scale-110 transition-all"
+        >
+          GitHub
+        </a>
+      </div>
+    </div>
+  </section>
 </Layout>
+
+<style>
+  /* Animaciones */
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  .floating-blob {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .floating-blob-delayed {
+    animation: float 8s ease-in-out infinite;
+    animation-delay: 2s;
+  }
+
+  .floating-blob-slow {
+    animation: float 10s ease-in-out infinite;
+    animation-delay: 4s;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 1s ease-out forwards;
+  }
+
+  @keyframes bounceSlow {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-bounce-slow {
+    animation: bounceSlow 2s ease-in-out infinite;
+  }
+
+  /* Glitch Effect */
+  .glitch-title {
+    position: relative;
+    animation: glitch-skew 1s infinite;
+  }
+
+  .glitch-title::before,
+  .glitch-title::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .glitch-title::before {
+    left: 2px;
+    text-shadow: -2px 0 #ec4899;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+  }
+
+  .glitch-title::after {
+    left: -2px;
+    text-shadow: -2px 0 #8b5cf6;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim2 5s infinite linear alternate-reverse;
+  }
+
+  @keyframes glitch-anim {
+    0% {
+      clip: rect(31px, 9999px, 94px, 0);
+    }
+    20% {
+      clip: rect(60px, 9999px, 89px, 0);
+    }
+    40% {
+      clip: rect(80px, 9999px, 77px, 0);
+    }
+    60% {
+      clip: rect(49px, 9999px, 36px, 0);
+    }
+    80% {
+      clip: rect(53px, 9999px, 54px, 0);
+    }
+    100% {
+      clip: rect(74px, 9999px, 49px, 0);
+    }
+  }
+
+  @keyframes glitch-anim2 {
+    0% {
+      clip: rect(65px, 9999px, 100px, 0);
+    }
+    20% {
+      clip: rect(30px, 9999px, 64px, 0);
+    }
+    40% {
+      clip: rect(72px, 9999px, 62px, 0);
+    }
+    60% {
+      clip: rect(99px, 9999px, 21px, 0);
+    }
+    80% {
+      clip: rect(15px, 9999px, 78px, 0);
+    }
+    100% {
+      clip: rect(48px, 9999px, 31px, 0);
+    }
+  }
+
+  @keyframes glitch-skew {
+    0% {
+      transform: skew(0deg);
+    }
+    10% {
+      transform: skew(-2deg);
+    }
+    20% {
+      transform: skew(0deg);
+    }
+    30% {
+      transform: skew(1deg);
+    }
+    40% {
+      transform: skew(0deg);
+    }
+    100% {
+      transform: skew(0deg);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .glitch-title {
+      font-size: 3rem;
+    }
+  }
+</style>

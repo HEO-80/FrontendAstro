@@ -1,84 +1,442 @@
 <nav
-  class="bg-neutral-primary fixed w-full z-20 top-0 start-0 border-b border-default"
+  class="fixed w-full z-50 top-0 bg-white/80 backdrop-blur-md border-b border-gray-200/50 shadow-sm transition-all duration-300 supports-[backdrop-filter]:bg-white/60"
 >
-  <div class="flex flex-wrap items-center justify-between mx-auto p-4">
-    <!-- Logo -->
-    <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-      <img src="/favicon.svg" class="h-7" alt="Logo" />
-      <span
-        class="self-center text-xl text-heading font-semibold whitespace-nowrap"
-      >
-        Curso Front-End
-      </span>
-    </a>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <a href="/" class="flex items-center space-x-3 group">
+        <div class="relative">
+          <div
+            class="absolute inset-0 bg-blue-500 rounded-full blur opacity-20 group-hover:opacity-40 transition-opacity"
+          >
+          </div>
+          <img
+            src="/favicon.svg"
+            class="h-8 relative z-10 transition-transform group-hover:scale-110 duration-300"
+            alt="Logo"
+          />
+        </div>
+        <span
+          class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600 hidden sm:block"
+        >
+          Curso Front-End
+        </span>
+      </a>
 
-    <!-- Right section -->
-    <div class="flex items-center md:order-2">
-      <!-- Search (desktop) -->
-      <div class="relative hidden md:block">
+      <!-- Desktop Menu & Search -->
+      <div class="hidden lg:flex items-center gap-6">
+        <!-- Search -->
+        <div class="relative group">
+          <div
+            class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none"
+          >
+            <svg
+              class="w-4 h-4 text-gray-400 group-focus-within:text-blue-500 transition-colors"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-width="2"
+                d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"></path>
+            </svg>
+          </div>
+          <input
+            id="search-input"
+            type="text"
+            placeholder="Buscar alumno..."
+            class="block w-64 ps-10 pe-4 bg-gray-50/50 border border-gray-200 text-gray-900 text-sm rounded-full focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 focus:bg-white transition-all duration-300 px-3 py-2 placeholder:text-gray-400 hover:bg-gray-50"
+            autocomplete="off"
+          />
+          <ul
+            id="suggestions"
+            class="absolute w-full bg-white/90 backdrop-blur-xl border border-gray-100 rounded-2xl mt-2 max-h-60 overflow-auto hidden z-50 shadow-xl ring-1 ring-black/5 scrollbar-thin scrollbar-thumb-gray-200"
+          >
+          </ul>
+        </div>
+
+        <!-- Dropdown Button -->
+        <div class="relative">
+          <button
+            id="menu-button"
+            class="group relative px-5 py-2.5 bg-gray-900 text-white font-medium rounded-full hover:bg-gray-800 transition-all duration-300 flex items-center gap-2 shadow-lg shadow-gray-900/20 hover:shadow-gray-900/30 hover:-translate-y-0.5 active:translate-y-0"
+          >
+            <span>Alumnos</span>
+            <svg
+              id="menu-icon"
+              class="w-4 h-4 transition-transform duration-300 group-hover:translate-y-0.5"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+
+          <!-- Dropdown Menu -->
+          <ul
+            id="dropdown-menu"
+            class="absolute right-0 top-full mt-4 bg-white/90 backdrop-blur-xl border border-gray-100 rounded-2xl shadow-2xl p-3 hidden opacity-0 scale-95 transition-all duration-200 ease-out grid grid-cols-3 w-[600px] z-50 ring-1 ring-black/5 origin-top-right"
+          >
+            <li>
+              <a
+                href="/hector"
+                class="flex items-center px-4 py-3 hover:bg-gray-50 rounded-xl transition-all text-gray-600 hover:text-blue-600 capitalize group"
+              >
+                <span
+                  class="w-2 h-2 rounded-full bg-gray-300 group-hover:bg-blue-500 mr-3 transition-colors"
+                ></span>
+                Héctor
+              </a>
+            </li>
+            <li>
+              <a
+                href="/gabriel"
+                class="flex items-center px-4 py-3 hover:bg-gray-50 rounded-xl transition-all text-gray-600 hover:text-blue-600 capitalize group"
+              >
+                <span
+                  class="w-2 h-2 rounded-full bg-gray-300 group-hover:bg-blue-500 mr-3 transition-colors"
+                ></span>
+                Gabriel
+              </a>
+            </li>
+            <li>
+              <a
+                href="/josue"
+                class="flex items-center px-4 py-3 hover:bg-gray-50 rounded-xl transition-all text-gray-600 hover:text-blue-600 capitalize group"
+              >
+                <span
+                  class="w-2 h-2 rounded-full bg-gray-300 group-hover:bg-blue-500 mr-3 transition-colors"
+                ></span>
+                Josue
+              </a>
+            </li>
+            <li>
+              <a
+                href="/javier"
+                class="flex items-center px-4 py-3 hover:bg-gray-50 rounded-xl transition-all text-gray-600 hover:text-blue-600 capitalize group"
+              >
+                <span
+                  class="w-2 h-2 rounded-full bg-gray-300 group-hover:bg-blue-500 mr-3 transition-colors"
+                ></span>
+                Javier
+              </a>
+            </li>
+            <li>
+              <a
+                href="/nico"
+                class="flex items-center px-4 py-3 hover:bg-gray-50 rounded-xl transition-all text-gray-600 hover:text-blue-600 capitalize group"
+              >
+                <span
+                  class="w-2 h-2 rounded-full bg-gray-300 group-hover:bg-blue-500 mr-3 transition-colors"
+                ></span>
+                Nico
+              </a>
+            </li>
+            <li>
+              <a
+                href="/angel"
+                class="flex items-center px-4 py-3 hover:bg-gray-50 rounded-xl transition-all text-gray-600 hover:text-blue-600 capitalize group"
+              >
+                <span
+                  class="w-2 h-2 rounded-full bg-gray-300 group-hover:bg-blue-500 mr-3 transition-colors"
+                ></span>
+                Angel
+              </a>
+            </li>
+            <li>
+              <a
+                href="/john"
+                class="flex items-center px-4 py-3 hover:bg-gray-50 rounded-xl transition-all text-gray-600 hover:text-blue-600 capitalize group"
+              >
+                <span
+                  class="w-2 h-2 rounded-full bg-gray-300 group-hover:bg-blue-500 mr-3 transition-colors"
+                ></span>
+                John
+              </a>
+            </li>
+            <li>
+              <a
+                href="/alberto"
+                class="flex items-center px-4 py-3 hover:bg-gray-50 rounded-xl transition-all text-gray-600 hover:text-blue-600 capitalize group"
+              >
+                <span
+                  class="w-2 h-2 rounded-full bg-gray-300 group-hover:bg-blue-500 mr-3 transition-colors"
+                ></span>
+                Alberto
+              </a>
+            </li>
+            <li>
+              <a
+                href="/juan"
+                class="flex items-center px-4 py-3 hover:bg-gray-50 rounded-xl transition-all text-gray-600 hover:text-blue-600 capitalize group"
+              >
+                <span
+                  class="w-2 h-2 rounded-full bg-gray-300 group-hover:bg-blue-500 mr-3 transition-colors"
+                ></span>
+                Juan
+              </a>
+            </li>
+            <li>
+              <a
+                href="/miguel"
+                class="flex items-center px-4 py-3 hover:bg-gray-50 rounded-xl transition-all text-gray-600 hover:text-blue-600 capitalize group"
+              >
+                <span
+                  class="w-2 h-2 rounded-full bg-gray-300 group-hover:bg-blue-500 mr-3 transition-colors"
+                ></span>
+                Miguel
+              </a>
+            </li>
+            <li>
+              <a
+                href="/angela"
+                class="flex items-center px-4 py-3 hover:bg-gray-50 rounded-xl transition-all text-gray-600 hover:text-blue-600 capitalize group"
+              >
+                <span
+                  class="w-2 h-2 rounded-full bg-gray-300 group-hover:bg-blue-500 mr-3 transition-colors"
+                ></span>
+                Angela
+              </a>
+            </li>
+            <li>
+              <a
+                href="/nayade"
+                class="flex items-center px-4 py-3 hover:bg-gray-50 rounded-xl transition-all text-gray-600 hover:text-blue-600 capitalize group"
+              >
+                <span
+                  class="w-2 h-2 rounded-full bg-gray-300 group-hover:bg-blue-500 mr-3 transition-colors"
+                ></span>
+                Nayade
+              </a>
+            </li>
+            <li>
+              <a
+                href="/omar"
+                class="flex items-center px-4 py-3 hover:bg-gray-50 rounded-xl transition-all text-gray-600 hover:text-blue-600 capitalize group"
+              >
+                <span
+                  class="w-2 h-2 rounded-full bg-gray-300 group-hover:bg-blue-500 mr-3 transition-colors"
+                ></span>
+                Omar
+              </a>
+            </li>
+            <li>
+              <a
+                href="/virginia"
+                class="flex items-center px-4 py-3 hover:bg-gray-50 rounded-xl transition-all text-gray-600 hover:text-blue-600 capitalize group"
+              >
+                <span
+                  class="w-2 h-2 rounded-full bg-gray-300 group-hover:bg-blue-500 mr-3 transition-colors"
+                ></span>
+                Virginia
+              </a>
+            </li>
+            <li>
+              <a
+                href="/jafet"
+                class="flex items-center px-4 py-3 hover:bg-gray-50 rounded-xl transition-all text-gray-600 hover:text-blue-600 capitalize group"
+              >
+                <span
+                  class="w-2 h-2 rounded-full bg-gray-300 group-hover:bg-blue-500 mr-3 transition-colors"
+                ></span>
+                Jafet
+              </a>
+            </li>
+            <li>
+              <a
+                href="/cosmin"
+                class="flex items-center px-4 py-3 hover:bg-gray-50 rounded-xl transition-all text-gray-600 hover:text-blue-600 capitalize group"
+              >
+                <span
+                  class="w-2 h-2 rounded-full bg-gray-300 group-hover:bg-blue-500 mr-3 transition-colors"
+                ></span>
+                Cosmin
+              </a>
+            </li>
+            <li>
+              <a
+                href="/jaime"
+                class="flex items-center px-4 py-3 hover:bg-gray-50 rounded-xl transition-all text-gray-600 hover:text-blue-600 capitalize group"
+              >
+                <span
+                  class="w-2 h-2 rounded-full bg-gray-300 group-hover:bg-blue-500 mr-3 transition-colors"
+                ></span>
+                Jaime
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-button"
+        class="lg:hidden p-2 rounded-full hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-200"
+      >
+        <svg
+          id="hamburger-icon"
+          class="w-6 h-6 text-gray-700"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+        <svg
+          id="close-icon"
+          class="w-6 h-6 text-gray-700 hidden"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div
+    id="mobile-menu"
+    class="lg:hidden hidden border-t border-gray-100 bg-white/95 backdrop-blur-xl absolute w-full left-0 shadow-lg"
+  >
+    <div class="px-4 py-6 space-y-4">
+      <!-- Mobile Search -->
+      <div class="relative">
         <div
           class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none"
         >
           <svg
-            class="w-4 h-4 text-body"
+            class="w-4 h-4 text-gray-500"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
           >
             <path
-              stroke="currentColor"
               stroke-linecap="round"
+              stroke-linejoin="round"
               stroke-width="2"
               d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"></path>
           </svg>
         </div>
         <input
-          id="search-input"
+          id="search-input-mobile"
           type="text"
           placeholder="Buscar alumno..."
-          class="block w-full ps-9 pe-3 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand px-2.5 py-2 shadow-xs placeholder:text-body"
+          class="block w-full ps-10 pe-4 bg-gray-50 border border-gray-200 text-gray-900 text-sm rounded-xl focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 px-4 py-3 placeholder:text-gray-400"
           autocomplete="off"
         />
         <ul
-          id="suggestions"
-          class="absolute w-full bg-white border border-default rounded-base mt-1 max-h-48 overflow-auto hidden z-50"
+          id="suggestions-mobile"
+          class="absolute w-full bg-white border border-gray-100 rounded-xl mt-2 max-h-48 overflow-auto hidden z-50 shadow-xl"
         >
         </ul>
       </div>
-    </div>
 
-    <!-- MENU -->
-    <div
-      class="items-center hidden md:flex md:w-auto md:order-1 group"
-      id="navbar-search"
-    >
-      <ul
-        class="absolute left-1/2 -translate-x-1/2 top-full z-50
-                 bg-white border border-default rounded-base shadow-lg
-                 px-4 py-2 flex flex-row gap-4
-                 opacity-0 invisible group-hover:opacity-100 group-hover:visible
-                 transition-all text-black"
-      >
-        <li><a href="/hector" class="text-black">Héctor</a></li>
-        <li><a href="/gabriel" class="text-black">Gabriel</a></li>
-        <li><a href="/josue" class="text-black">Josue</a></li>
-        <li><a href="/javier" class="text-black">Javier</a></li>
-        <li><a href="/nico" class="text-black">Nico</a></li>
-        <li><a href="/angel" class="text-black">Angel</a></li>
-        <li><a href="/john" class="text-black">John</a></li>
-        <li><a href="/alberto" class="text-black">Alberto</a></li>
-        <li><a href="/juan" class="text-black">Juan</a></li>
-        <li><a href="/miguel" class="text-black">Miguel</a></li>
-        <li><a href="/angela" class="text-black">Angela</a></li>
-        <li><a href="/nayade" class="text-black">Nayade</a></li>
-        <li><a href="/omar" class="text-black">Omar</a></li>
-        <li><a href="/virginia" class="text-black">Virginia</a></li>
-        <li><a href="/jafet" class="text-black">Jafet</a></li>
-        <li><a href="/cosmin" class="text-black">Cosmin</a></li>
-        <li><a href="/jaime" class="text-black">Jaime</a></li>
-      </ul>
-
-      <button class="text-heading font-medium ml-4"> Alumnos ▾ </button>
+      <!-- Mobile Students List -->
+      <div class="grid grid-cols-2 gap-2">
+        <a
+          href="/hector"
+          class="px-4 py-3 bg-gray-50 hover:bg-gray-100 rounded-xl text-gray-600 text-sm capitalize transition-all font-medium text-center"
+          >Héctor</a
+        >
+        <a
+          href="/gabriel"
+          class="px-4 py-3 bg-gray-50 hover:bg-gray-100 rounded-xl text-gray-600 text-sm capitalize transition-all font-medium text-center"
+          >Gabriel</a
+        >
+        <a
+          href="/josue"
+          class="px-4 py-3 bg-gray-50 hover:bg-gray-100 rounded-xl text-gray-600 text-sm capitalize transition-all font-medium text-center"
+          >Josue</a
+        >
+        <a
+          href="/javier"
+          class="px-4 py-3 bg-gray-50 hover:bg-gray-100 rounded-xl text-gray-600 text-sm capitalize transition-all font-medium text-center"
+          >Javier</a
+        >
+        <a
+          href="/nico"
+          class="px-4 py-3 bg-gray-50 hover:bg-gray-100 rounded-xl text-gray-600 text-sm capitalize transition-all font-medium text-center"
+          >Nico</a
+        >
+        <a
+          href="/angel"
+          class="px-4 py-3 bg-gray-50 hover:bg-gray-100 rounded-xl text-gray-600 text-sm capitalize transition-all font-medium text-center"
+          >Angel</a
+        >
+        <a
+          href="/john"
+          class="px-4 py-3 bg-gray-50 hover:bg-gray-100 rounded-xl text-gray-600 text-sm capitalize transition-all font-medium text-center"
+          >John</a
+        >
+        <a
+          href="/alberto"
+          class="px-4 py-3 bg-gray-50 hover:bg-gray-100 rounded-xl text-gray-600 text-sm capitalize transition-all font-medium text-center"
+          >Alberto</a
+        >
+        <a
+          href="/juan"
+          class="px-4 py-3 bg-gray-50 hover:bg-gray-100 rounded-xl text-gray-600 text-sm capitalize transition-all font-medium text-center"
+          >Juan</a
+        >
+        <a
+          href="/miguel"
+          class="px-4 py-3 bg-gray-50 hover:bg-gray-100 rounded-xl text-gray-600 text-sm capitalize transition-all font-medium text-center"
+          >Miguel</a
+        >
+        <a
+          href="/angela"
+          class="px-4 py-3 bg-gray-50 hover:bg-gray-100 rounded-xl text-gray-600 text-sm capitalize transition-all font-medium text-center"
+          >Angela</a
+        >
+        <a
+          href="/nayade"
+          class="px-4 py-3 bg-gray-50 hover:bg-gray-100 rounded-xl text-gray-600 text-sm capitalize transition-all font-medium text-center"
+          >Nayade</a
+        >
+        <a
+          href="/omar"
+          class="px-4 py-3 bg-gray-50 hover:bg-gray-100 rounded-xl text-gray-600 text-sm capitalize transition-all font-medium text-center"
+          >Omar</a
+        >
+        <a
+          href="/virginia"
+          class="px-4 py-3 bg-gray-50 hover:bg-gray-100 rounded-xl text-gray-600 text-sm capitalize transition-all font-medium text-center"
+          >Virginia</a
+        >
+        <a
+          href="/jafet"
+          class="px-4 py-3 bg-gray-50 hover:bg-gray-100 rounded-xl text-gray-600 text-sm capitalize transition-all font-medium text-center"
+          >Jafet</a
+        >
+        <a
+          href="/cosmin"
+          class="px-4 py-3 bg-gray-50 hover:bg-gray-100 rounded-xl text-gray-600 text-sm capitalize transition-all font-medium text-center"
+          >Cosmin</a
+        >
+        <a
+          href="/jaime"
+          class="px-4 py-3 bg-gray-50 hover:bg-gray-100 rounded-xl text-gray-600 text-sm capitalize transition-all font-medium text-center"
+          >Jaime</a
+        >
+      </div>
     </div>
   </div>
 </nav>
@@ -104,50 +462,114 @@
     "jaime",
   ];
 
-  const input = document.getElementById("search-input");
-  const suggestions = document.getElementById("suggestions");
+  // ===== DROPDOWN MENU (Desktop) =====
+  const menuButton = document.getElementById("menu-button");
+  const dropdownMenu = document.getElementById("dropdown-menu");
+  const menuIcon = document.getElementById("menu-icon");
+  let isMenuOpen = false;
 
-  input.addEventListener("input", () => {
-    const value = input.value.toLowerCase().trim();
-    suggestions.innerHTML = "";
-
-    if (!value) {
-      suggestions.classList.add("hidden");
-      return;
+  function toggleMenu() {
+    isMenuOpen = !isMenuOpen;
+    if (isMenuOpen) {
+      dropdownMenu.classList.remove("hidden");
+      setTimeout(() => {
+        dropdownMenu.classList.remove("opacity-0", "scale-95");
+        dropdownMenu.classList.add("opacity-100", "scale-100");
+      }, 10);
+      menuIcon.style.transform = "rotate(180deg)";
+    } else {
+      dropdownMenu.classList.remove("opacity-100", "scale-100");
+      dropdownMenu.classList.add("opacity-0", "scale-95");
+      menuIcon.style.transform = "rotate(0deg)";
+      setTimeout(() => dropdownMenu.classList.add("hidden"), 300);
     }
+  }
 
-    const matches = alumnos.filter((name) => name.includes(value));
-
-    if (matches.length === 0) {
-      suggestions.classList.add("hidden");
-      return;
-    }
-
-    matches.forEach((name) => {
-      const li = document.createElement("li");
-      li.className = "px-3 py-2 hover:bg-gray-100 cursor-pointer text-black";
-
-      // Resaltar la coincidencia
-      const index = name.indexOf(value);
-      if (index !== -1) {
-        li.innerHTML = `${name.substring(0, index)}<span class="font-semibold text-brand text-black">${name.substring(index, index + value.length)}</span>${name.substring(index + value.length)}`;
-      } else {
-        li.textContent = name;
-      }
-
-      li.addEventListener("click", () => {
-        window.location.href = `/${name}`;
-      });
-
-      suggestions.appendChild(li);
-    });
-
-    suggestions.classList.remove("hidden");
+  menuButton?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    toggleMenu();
   });
 
   document.addEventListener("click", (e) => {
-    if (!input.contains(e.target) && !suggestions.contains(e.target)) {
-      suggestions.classList.add("hidden");
+    if (
+      isMenuOpen &&
+      !menuButton?.contains(e.target) &&
+      !dropdownMenu?.contains(e.target)
+    ) {
+      toggleMenu();
     }
   });
+
+  // ===== MOBILE MENU =====
+  const mobileMenuButton = document.getElementById("mobile-menu-button");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const hamburgerIcon = document.getElementById("hamburger-icon");
+  const closeIcon = document.getElementById("close-icon");
+
+  mobileMenuButton?.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+    hamburgerIcon.classList.toggle("hidden");
+    closeIcon.classList.toggle("hidden");
+  });
+
+  // ===== SEARCH FUNCTIONALITY =====
+  function setupSearch(inputId, suggestionsId) {
+    const input = document.getElementById(inputId);
+    const suggestions = document.getElementById(suggestionsId);
+
+    if (!input || !suggestions) return;
+
+    input.addEventListener("input", () => {
+      const value = input.value.toLowerCase().trim();
+      suggestions.innerHTML = "";
+
+      if (!value) {
+        suggestions.classList.add("hidden");
+        return;
+      }
+
+      const matches = alumnos.filter((name) => name.includes(value));
+
+      if (matches.length === 0) {
+        suggestions.innerHTML =
+          '<li class="px-4 py-3 text-gray-500 text-sm">No se encontraron resultados</li>';
+        suggestions.classList.remove("hidden");
+        return;
+      }
+
+      matches.forEach((name) => {
+        const li = document.createElement("li");
+        li.className =
+          "px-4 py-3 hover:bg-gray-50 cursor-pointer transition-all capitalize text-gray-600 hover:text-blue-600 flex items-center";
+
+        const index = name.indexOf(value);
+        let linkContent = name;
+        if (index !== -1) {
+          linkContent = `${name.substring(0, index)}<span class="font-bold text-blue-600">${name.substring(index, index + value.length)}</span>${name.substring(index + value.length)}`;
+        }
+        
+        li.innerHTML = `
+          <span class="w-2 h-2 rounded-full bg-gray-300 mr-3"></span>
+          <span>${linkContent}</span>
+        `;
+
+        li.addEventListener("click", () => {
+          window.location.href = `/${name}`;
+        });
+
+        suggestions.appendChild(li);
+      });
+
+      suggestions.classList.remove("hidden");
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!input.contains(e.target) && !suggestions.contains(e.target)) {
+        suggestions.classList.add("hidden");
+      }
+    });
+  }
+
+  setupSearch("search-input", "suggestions");
+  setupSearch("search-input-mobile", "suggestions-mobile");
 </script>
