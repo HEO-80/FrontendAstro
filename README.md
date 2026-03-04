@@ -1,132 +1,232 @@
-# 🚀 Proyecto Colaborativo - Curso Frontend y Desarrollo Web
+<div align="center">
 
-Repositorio oficial del proyecto grupal desarrollado durante el curso oficial de **Desarrollo Web Front End (IFCD55)**. Este proyecto ha sido construido de forma colaborativa simulando un entorno de trabajo real utilizando control de versiones y metodologías ágiles.
+# 🚀 FrontendAstro — Collaborative Web Development Project
 
-🌐 **Demo en vivo (Netlify):** [https://frontendastrodev.netlify.app/](https://frontendastrodev.netlify.app/)
-💻 **Repositorio:** [https://github.com/HEO-80/FrontendAstro](https://github.com/HEO-80/FrontendAstro)
+<img src="https://img.shields.io/badge/Astro-FF5D01?style=for-the-badge&logo=astro&logoColor=white"/>
+<img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white"/>
+<img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white"/>
+<img src="https://img.shields.io/badge/GSAP-88CE02?style=for-the-badge&logo=greensock&logoColor=black"/>
+<img src="https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white"/>
 
----
+**🌍 [English](#-english-version) · 🇪🇸 [Español](#-versión-en-español)**
 
-## 🛠️ Tecnologías Utilizadas
+<br/>
 
-Este proyecto se ha desarrollado utilizando un stack tecnológico moderno, priorizando el rendimiento y la experiencia de usuario:
+**Proyecto grupal del curso oficial de Desarrollo Web Front End (IFCD55)**
 
-* **Astro:** Un framework web diseñado para construir sitios estáticos rápidos, que por defecto envía cero JavaScript al cliente. En este proyecto, Astro actúa como la base arquitectónica, permitiéndonos integrar componentes interactivos (islas) solo cuando es estrictamente necesario, lo que optimiza drásticamente los tiempos de carga.
-* **Tailwind CSS:** Un framework CSS de bajo nivel que proporciona clases de utilidad para aplicar estilos directamente en el marcado HTML. Nos ha permitido mantener un diseño coherente y responsivo en todas las páginas sin necesidad de escribir archivos CSS externos extensos.
-* **GSAP (GreenSock Animation Platform):** Una biblioteca de JavaScript para crear animaciones de alto rendimiento.
-* **Git & GitHub:** Control de versiones para el trabajo colaborativo de los 9 contribuidores.
-* **Netlify:** Plataforma de alojamiento y despliegue continuo.
+*9 desarrolladores · 300 horas de formación · flujo real de trabajo con Git*
 
----
+[![Live Demo](https://img.shields.io/badge/🌐_Ver_Demo_en_Vivo-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](https://frontendastrodev.netlify.app/)
 
-## 📝 Sobre el Proyecto
-
-Este sitio web es el resultado de la aplicación práctica de los conocimientos adquiridos durante las 300 horas del curso. El desarrollo se ha estructurado de la siguiente manera:
-
-1.  **Setup Inicial:** Configuración base del enrutamiento, barra de navegación compartida y un motor de búsqueda integrado.
-2.  **Desarrollo Individual:** Cada alumno contó con su propio espacio (páginas individuales) para maquetar, diseñar e implementar funcionalidades, trabajando a través de ramas (*branches*) como `development`, `virginia`, o `feature/cursor-and-john-page`.
-3.  **Integración Continua:** Resolución de conflictos y fusión (*merge*) de las aportaciones individuales mediante *Pull Requests* hacia la rama principal.
+</div>
 
 ---
 
-## ⚙️ Instalación y Uso Local
+## 🇪🇸 Versión en Español
 
-Si deseas clonar y ejecutar este proyecto en tu entorno local, sigue estos pasos:
+### 📝 Sobre el Proyecto
 
-Asegúrate de tener [Node.js](https://nodejs.org/) instalado. Desde la terminal, en la raíz del proyecto, ejecuta:
+Este repositorio es el resultado del proyecto grupal del curso oficial **IFCD55 - Desarrollo Web Front End**, construido por **9 desarrolladores** trabajando en paralelo con un flujo de trabajo real: ramas, pull requests, resolución de conflictos y despliegue continuo.
 
-| Comando | Acción |
-| :--- | :--- |
-| `npm install` | Instala todas las dependencias necesarias. |
-| `npm run dev` | Inicia el servidor local de desarrollo en `localhost:4321`. |
-| `npm run build` | Compila el sitio para producción en la carpeta `./dist/`. |
-| `npm run preview` | Previsualiza la compilación localmente antes de desplegar. |
+El objetivo no era solo entregar una web — era **simular un entorno profesional real** desde el primer commit.
 
 ---
 
-## 👥 Contribuidores
+### ✨ Características
 
-Este proyecto ha salido adelante gracias al esfuerzo, talento y código de **9 desarrolladores**. Un agradecimiento especial a todos los alumnos por su dedicación y por el altísimo nivel demostrado en cada *commit*. 
-
-*Puedes ver la lista completa de contribuidores y sus aportaciones en la [sección de Contributors de GitHub](https://github.com/HEO-80/FrontendAstro/graphs/contributors).*
-
----
-# 🚀 Collaborative Project - Frontend and Web Development Course
-
-Official repository for the group project developed during the **Front End Web Development (IFCD55)** official course. This project was built collaboratively, simulating a real-world work environment using version control and agile methodologies.
-
-🌐 **Live Demo (Netlify):** [https://frontendastrodev.netlify.app/](https://frontendastrodev.netlify.app/)
-💻 **Repository:** [https://github.com/HEO-80/FrontendAstro](https://github.com/HEO-80/FrontendAstro)
+- ⚡ **Zero JS por defecto** — Astro envía solo el JavaScript estrictamente necesario al cliente
+- 🎨 **UI consistente** — Tailwind CSS utility-first en todas las páginas
+- 🎭 **Animaciones fluidas** — GSAP para secuencias de alto rendimiento
+- 🔍 **Motor de búsqueda integrado** — navegación entre páginas de alumnos
+- 📱 **Totalmente responsive** — diseñado para cualquier pantalla
+- 🔄 **CI/CD real** — despliegue automático en Netlify desde `main`
 
 ---
 
-## 🛠️ Built With
+### 🛠️ Tech Stack
 
-This project was developed using a modern tech stack, prioritizing performance and user experience:
-
-* **Astro:** A web framework designed to build fast static sites, which by default ships zero JavaScript to the client. In this project, Astro acts as the architectural base, allowing us to integrate interactive components (islands) only when strictly necessary, which drastically optimizes load times. You can think of it as building a solid, static house and only plugging in electricity (JavaScript) to the specific appliances (islands) that need it.
-* **Tailwind CSS:** A utility-first CSS framework that provides classes to apply styles directly within the HTML markup. This allowed us to maintain a consistent and responsive design across all pages without the need to write extensive external CSS files. Think of it as having a box of pre-painted, ready-to-use Lego bricks instead of having to mold and paint each brick yourself.
-* **GSAP (GreenSock Animation Platform):** A robust JavaScript library for creating high-performance animations. It provides precise control over sequences and CSS properties. It acts like a digital puppeteer, smoothly bringing the static DOM elements to life.
-* **Git & GitHub:** Version control for the collaborative work of the 9 contributors.
-* **Netlify:** Platform for hosting and continuous deployment.
-
----
-
-## 📝 About the Project
-
-This website is the result of the practical application of the knowledge acquired during the 300 hours of the course. The development was structured as follows:
-
-1.  **Initial Setup:** Base configuration of the routing, shared navigation bar, and an integrated search engine.
-2.  **Individual Development:** Each student had their own space (individual pages) to layout, design, and implement features, working through branches like `development`, `virginia`, or `feature/cursor-and-john-page`.
-3.  **Continuous Integration:** Conflict resolution and merging of individual contributions via Pull Requests to the main branch.
+| Tecnología | Rol en el proyecto |
+|:---|:---|
+| **Astro** | Framework base — SSG con arquitectura de islas |
+| **Tailwind CSS** | Estilos utility-first — diseño consistente y responsive |
+| **GSAP** | Animaciones de alto rendimiento en DOM |
+| **TypeScript** | Tipado estático en componentes |
+| **Git + GitHub** | Control de versiones para 9 contribuidores |
+| **Netlify** | Hosting + despliegue continuo desde `main` |
 
 ---
 
-## ⚙️ Local Installation and Usage
+### 📸 Demo
 
-If you want to clone and run this project in your local environment, follow these steps:
+[![FrontendAstro Preview](https://frontendastrodev.netlify.app/)](https://frontendastrodev.netlify.app/)
 
-Make sure you have [Node.js](https://nodejs.org/) installed. From your terminal, in the root of the project, run:
-
-| Command | Action |
-| :--- | :--- |
-| `npm install` | Installs all necessary dependencies. |
-| `npm run dev` | Starts the local development server at `localhost:4321`. |
-| `npm run build` | Builds your production site to `./dist/`. |
-| `npm run preview` | Previews your build locally before deploying. |
+> 🌐 **[frontendastrodev.netlify.app](https://frontendastrodev.netlify.app/)**
 
 ---
 
-## 👥 Contributors
+### 🔄 Flujo de Trabajo Colaborativo
 
-This project was made possible by the effort, talent, and code of **9 developers**. A special thanks to all the students for their dedication and the high level shown in every commit.
+El proyecto simuló un entorno de trabajo profesional real:
+```
+main
+  └── development
+        ├── virginia
+        ├── feature/cursor-and-john-page
+        ├── feature/alumno-3
+        └── ... (una rama por alumno)
+```
 
-*You can see the full list of contributors and their inputs in the [GitHub Contributors section](https://github.com/HEO-80/FrontendAstro/graphs/contributors).*
+**Proceso:**
+1. **Setup inicial** — enrutamiento base, navbar compartida y motor de búsqueda
+2. **Desarrollo individual** — cada alumno trabajó en su propia rama y páginas
+3. **Pull Requests** — revisión y merge hacia `development`
+4. **Integración continua** — resolución de conflictos y merge final a `main`
+5. **Deploy automático** — Netlify detecta cambios en `main` y despliega
 
 ---
 
-## 📸 Project Gallery
-
-*Since we couldn't take a group photo to close the course, we leave here the "picture" of our teamwork, which speaks for itself:*
-
-![Project Screenshot](https://frontendastrodev.netlify.app/og-image.jpg)
-
-## 📸 Galería del Proyecto
-
-![Captura de la web FrontendAstro](https://frontendastrodev.netlify.app/og-image.jpg) 
-
-```text
-/
+### 🏗️ Estructura del Proyecto
+```
+FrontendAstro/
 ├── public/
 │   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
+├── src/
+│   ├── assets/             # Imágenes y recursos estáticos
+│   ├── components/         # Componentes Astro reutilizables
+│   ├── layouts/            # Layout base compartido
+│   └── pages/              # Una página por alumno + index
+├── astro.config.mjs        # Configuración Astro
+├── tailwind.config.js      # Configuración Tailwind
 └── package.json
 ```
+
+---
+
+### ⚙️ Instalación y Uso Local
+
+**1. Clonar el repositorio**
+```bash
+git clone https://github.com/HEO-80/FrontendAstro.git
+cd FrontendAstro
+```
+
+**2. Instalar dependencias**
+```bash
+npm install
+```
+
+**3. Servidor de desarrollo**
+```bash
+npm run dev
+# http://localhost:4321
+```
+
+**4. Build de producción**
+```bash
+npm run build
+npm run preview   # previsualizar antes de desplegar
+```
+
+---
+
+### 👥 Contribuidores
+
+Este proyecto fue posible gracias al esfuerzo de **9 desarrolladores**:
+
+[![Contributors](https://contrib.rocks/image?repo=HEO-80/FrontendAstro)](https://github.com/HEO-80/FrontendAstro/graphs/contributors)
+
+---
+
+### 🧑‍💻 Profesor & Setup Inicial
+
+**Héctor Oviedo** — Profesor del curso & Arquitecto del proyecto base
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/hectorob/)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/HEO-80)
+
+---
+---
+
+## 🇬🇧 English Version
+
+### 📝 About the Project
+
+This repository is the result of the group project from the official **IFCD55 - Front End Web Development** course, built by **9 developers** working in parallel with a real workflow: branches, pull requests, conflict resolution and continuous deployment.
+
+The goal wasn't just to deliver a website — it was to **simulate a real professional environment** from the first commit.
+
+---
+
+### ✨ Features
+
+- ⚡ **Zero JS by default** — Astro only ships strictly necessary JavaScript to the client
+- 🎨 **Consistent UI** — Tailwind CSS utility-first across all pages
+- 🎭 **Smooth animations** — GSAP for high-performance sequences
+- 🔍 **Integrated search engine** — navigation between student pages
+- 📱 **Fully responsive** — designed for any screen size
+- 🔄 **Real CI/CD** — automatic deployment on Netlify from `main`
+
+---
+
+### 🛠️ Tech Stack
+
+| Technology | Role |
+|:---|:---|
+| **Astro** | Base framework — SSG with island architecture |
+| **Tailwind CSS** | Utility-first styles — consistent responsive design |
+| **GSAP** | High-performance DOM animations |
+| **TypeScript** | Static typing in components |
+| **Git + GitHub** | Version control for 9 contributors |
+| **Netlify** | Hosting + continuous deployment from `main` |
+
+---
+
+### 🔄 Collaborative Workflow
+```
+main
+  └── development
+        ├── virginia
+        ├── feature/cursor-and-john-page
+        ├── feature/student-3
+        └── ... (one branch per student)
+```
+
+**Process:**
+1. **Initial setup** — base routing, shared navbar and search engine
+2. **Individual development** — each student worked on their own branch and pages
+3. **Pull Requests** — review and merge toward `development`
+4. **Continuous integration** — conflict resolution and final merge to `main`
+5. **Auto deploy** — Netlify detects changes on `main` and deploys
+
+---
+
+### ⚙️ Local Setup
+```bash
+git clone https://github.com/HEO-80/FrontendAstro.git
+cd FrontendAstro
+npm install
+npm run dev       # http://localhost:4321
+npm run build     # production build
+npm run preview   # preview before deploy
+```
+
+---
+
+### 👥 Contributors
+
+[![Contributors](https://contrib.rocks/image?repo=HEO-80/FrontendAstro)](https://github.com/HEO-80/FrontendAstro/graphs/contributors)
+
+---
+
+### 🧑‍💻 Teacher & Initial Setup
+
+**Héctor Oviedo** — Course Teacher & Project Architect
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/hectorob/)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/HEO-80)
+
+---
+
+<div align="center">
+  <sub>Proyecto desarrollado durante el curso IFCD55 · <strong>Héctor Oviedo</strong> · Zaragoza, España</sub>
+</div>
